@@ -5,6 +5,7 @@
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
+/[Uu]ser[Ss]ettings/
 
 # Never ignore Asset meta data
 ![Aa]ssets/**/*.meta
@@ -63,3 +64,6 @@ Thumbs.db
 *.log
 UserSettings/Layouts/default-2021.dwlt
 *.dwlt
+*.log
+Logs/shadercompiler-UnityShaderCompiler.exe0.log
+UserSettings/Layouts/default-2021.dwlt
