@@ -60,3 +60,6 @@ crashlytics-build.properties
 Icon?
 ehthumbs.db
 Thumbs.db
+*.log
+UserSettings/Layouts/default-2021.dwlt
+*.dwlt
