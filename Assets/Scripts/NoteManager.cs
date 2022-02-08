@@ -1,33 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using static RedNoize.References;
 //Note travels from 5.5 to - 1.5
 
 public class NoteManager : MonoBehaviour
 {
     //By default 4 lanes. Each lane corresponds to a button
-    public List<Queue<GameObject>> lanes = new List<Queue<GameObject>>();
-    [SerializeField] int bpm = 60;
+    public List<Queue<NoteController>> lanes = new List<Queue<NoteController>>();
+    [SerializeField] int bpm;
 
     //The note spawning is beat 0
-    [SerializeField] int beatsToPlayer = 4;
-    [SerializeField] GameObject note;
+    [SerializeField] int beatsToPlayer;
+    [SerializeField] GameObject noteRef;
 
     //If set to true the game will pause after every beat
-    [SerializeField] bool debugMode; 
+    [SerializeField] bool debugMode;
 
     /// <summary>
     /// Initializes our 4 lanes and starts the metronome
     /// </summary>
     private void Start()
     {
-        for(int i = 0; i < 4; ++i)
+        for (int i = 0; i < 4; ++i)
         {
-            lanes.Add(new Queue<GameObject>());
+            lanes.Add(new Queue<NoteController>());
         }
 
-        InvokeRepeating("Metronome", 0, bpm / 60);
+        InvokeRepeating("Metronome", 0, 60 / (float)bpm);
+
+        //Sets the global note manager equal to this object
+        nm = this;
     }
 
     /// <summary>
@@ -37,12 +40,15 @@ public class NoteManager : MonoBehaviour
     /// <param name="lane">The given lane</param>
     void SpawnNote(int lane)
     {
-        GameObject temp = Instantiate(note, new Vector2(LaneNumToXPos(lane), 5.5f), Quaternion.identity);
+        NoteController note = Instantiate(noteRef, new Vector2(LaneNumToXPos(lane), 5.5f),
+                                    Quaternion.identity).GetComponent<NoteController>();
 
-        float beatsPerSecond = (bpm / 60);
+        note.lane = lane;
 
-        temp.GetComponent<Rigidbody2D>().velocity = new Vector2(0, (-7 * beatsPerSecond) / beatsToPlayer);
-        lanes[lane].Enqueue(temp);
+        float beatsPerSecond = ((float)bpm / 60);
+        note.GetComponent<Rigidbody2D>().velocity = new Vector2(0, (-7 * beatsPerSecond) / beatsToPlayer);
+
+        lanes[lane].Enqueue(note);
     }
 
     /// <summary>
@@ -63,9 +69,13 @@ public class NoteManager : MonoBehaviour
         print("Click");
         if (Random.Range(0, 10) == 0)
         {
-            SpawnNote(Random.Range(0,4));
+            SpawnNote(Random.Range(0, 4));
         }
-        Debug.Break();
+
+        if (debugMode)
+        {
+            Debug.Break();
+        }
     }
 
 }
