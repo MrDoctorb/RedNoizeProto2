@@ -8,11 +8,11 @@ public class NoteManager : MonoBehaviour
 {
     //By default 4 lanes. Each lane corresponds to a button
     public List<Queue<NoteController>> lanes = new List<Queue<NoteController>>();
-    [SerializeField] int bpm;
+    public int bpm;
 
     //The note spawning is beat 0
-    [SerializeField] int beatsToPlayer;
-    [SerializeField] GameObject noteRef;
+    public int beatsToPlayer;
+    public GameObject noteRef;
 
     //If set to true the game will pause after every beat
     [SerializeField] bool debugMode;
@@ -48,6 +48,12 @@ public class NoteManager : MonoBehaviour
         float beatsPerSecond = ((float)bpm / 60);
         note.GetComponent<Rigidbody2D>().velocity = new Vector2(0, (-7 * beatsPerSecond) / beatsToPlayer);
 
+        if (Random.Range(0, 4) == 0)
+        {
+            note.catchable = true;
+        }
+
+
         lanes[lane].Enqueue(note);
     }
 
@@ -56,7 +62,7 @@ public class NoteManager : MonoBehaviour
     /// </summary>
     /// <param name="laneNum">The given lane</param>
     /// <returns></returns>
-    float LaneNumToXPos(int laneNum)
+    public float LaneNumToXPos(int laneNum)
     {
         return (1.5f * laneNum) - 2.25f;
     }
@@ -66,8 +72,7 @@ public class NoteManager : MonoBehaviour
     /// </summary>
     void Metronome()
     {
-        print("Click");
-        if (Random.Range(0, 10) == 0)
+        if (Random.Range(0, 5) == 0)
         {
             SpawnNote(Random.Range(0, 4));
         }
@@ -76,6 +81,13 @@ public class NoteManager : MonoBehaviour
         {
             Debug.Break();
         }
+
+        //Causes the notes to flash on the beat
+        foreach (NoteController note in FindObjectsOfType<NoteController>())
+        {
+            note.Flash();
+        }
+
     }
 
 }

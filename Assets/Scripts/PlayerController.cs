@@ -39,8 +39,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks to see if a note is close enough to be blocked in a given lane
+    /// </summary>
+    /// <param name="lane"></param>
     void BlockLane(int lane)
     {
+        if (nm.lanes[lane].Count == 0)
+        {
+            print("Swing and a miss");
+            ThrowNote(lane);
+            return;
+        }
         NoteController note = nm.lanes[lane].Peek();
 
         //If the note is within the good note range
@@ -48,26 +58,58 @@ public class PlayerController : MonoBehaviour
             note.transform.position.y > perfectHitLine - goodHitRange)
         {
             print("Nice Hit!");
-
-            //Destroy the object and remove it from the queue
-            Destroy(nm.lanes[lane].Dequeue().gameObject);
-
-            //Catch stuff
+            
+            BlockNote(note, lane);
         }
         else if (note.transform.position.y < perfectHitLine + badHitRange &&
             note.transform.position.y > perfectHitLine - badHitRange)
         {
             print("Eh, I guess");
+            
+            BlockNote(note, lane);
 
-            //Destroy the object and remove it from the queue
-            Destroy(nm.lanes[lane].Dequeue().gameObject);
-
-            //Catch stuff
+            //Penalty 
+            //TODO
         }
         else
         {
             print("Swing and a miss");
+            ThrowNote(lane);
         }
+    }
+
+    void BlockNote(NoteController note, int lane)
+    {
+        //Remove note from the queue
+        nm.lanes[lane].Dequeue();
+
+        if(note.catchable)
+        {
+            Destroy(note.gameObject);
+            //Increase catch values
+            //TODO
+            
+        }
+        else
+        {
+            note.GetComponent<Rigidbody2D>().velocity *= -1;
+            note.color = new Color(0, .5f, 1, .5f);
+            Destroy(note.gameObject, ((float)nm.bpm / 60) * nm.beatsToPlayer);
+        }
+    }
+
+    void ThrowNote(int lane)
+    {
+        NoteController note = Instantiate(nm.noteRef, new Vector2(nm.LaneNumToXPos(lane), -1.5f),
+                                    Quaternion.identity).GetComponent<NoteController>();
+
+        note.lane = lane;
+
+        float beatsPerSecond = ((float)nm.bpm / 60);
+        note.GetComponent<Rigidbody2D>().velocity = new Vector2(0, (7 * beatsPerSecond) / nm.beatsToPlayer);
+        note.color = new Color(0, 1, 1, .5f);
+        Destroy(note.gameObject, ((float)nm.bpm / 60) * nm.beatsToPlayer);
+
     }
 
     public void TakeDamage()
