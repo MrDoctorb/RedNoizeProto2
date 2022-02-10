@@ -1041,8 +1041,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack:
-    length: 0
-    wait: 0
+    length: 4
+    lanes:
+    - notes: 00000000
+    - notes: 00000001
+    - notes: 00000100
+    - notes: 01010000
 --- !u!1 &1544896105
 GameObject:
   m_ObjectHideFlags: 0

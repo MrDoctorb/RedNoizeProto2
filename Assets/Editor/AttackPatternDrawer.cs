@@ -1,34 +1,43 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomPropertyDrawer(typeof(AttackPatternAttribute))]
+[CustomPropertyDrawer(typeof(AttackPattern))]
 public class AttackPatternDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
-        GUILayout.BeginHorizontal();
+
+        SerializedProperty length = property.FindPropertyRelative("length");
+
+        Rect newPos = position;
+        //newPos.y += 18f;
+
+        EditorGUI.PrefixLabel(position, label);
+
+        newPos.y += 18f;
+        SerializedProperty lanes = property.FindPropertyRelative("lanes");
+
+        for (int i = 0; i < 4; i++)
         {
-            GUILayout.BeginVertical();
+            SerializedProperty notes = lanes.GetArrayElementAtIndex(i).FindPropertyRelative("notes");
+            newPos.height = 18f;
+            notes.arraySize = length.intValue;
+            newPos.width = position.width / 4;
+            for (int j = 0; j < length.intValue; j++)
             {
-                // your elements column 1
+                EditorGUI.PropertyField(newPos, notes.GetArrayElementAtIndex(j), GUIContent.none);
+                //newPos.x += newPos.width;
+                newPos.x += 18f;
             }
-            GUILayout.EndVertical();
-            GUILayout.BeginVertical();
-            {
-                // your elements column 2
-            }
-            GUILayout.EndVertical();
-            GUILayout.BeginVertical();
-            {
-                // your elements column 3
-            }
-            GUILayout.EndVertical();
-            GUILayout.BeginVertical();
-            {
-                // your elements column 4
-            }
-            GUILayout.EndVertical();
+            newPos.x = position.x;
+            newPos.y += 18f;
         }
-        GUILayout.EndHorizontal();
+        length.intValue = EditorGUI.IntField(newPos, length.intValue);
+
+    }
+
+    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+    {
+        return 18f * 10;
     }
 }
