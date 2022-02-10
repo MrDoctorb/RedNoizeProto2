@@ -12,6 +12,8 @@ public class NoteManager : MonoBehaviour
 
     //The note spawning is beat 0
     public int beatsToPlayer;
+    public EnemyController enemy;
+
     public GameObject noteRef;
 
     //If set to true the game will pause after every beat
@@ -22,6 +24,16 @@ public class NoteManager : MonoBehaviour
     /// </summary>
     private void Start()
     {
+        print("AAAAAAAAA");
+        print(enemy.attack.lanes.Length);
+        foreach (AttackPattern.lane a in enemy.attack.lanes)
+        {
+            foreach (bool b in a.notes)
+            {
+                print(b);
+            }
+        }
+
         for (int i = 0; i < 4; ++i)
         {
             lanes.Add(new Queue<NoteController>());

@@ -16,14 +16,15 @@ public class AttackPatternDrawer : PropertyDrawer
 
         newPos.y += 18f;
         SerializedProperty lanes = property.FindPropertyRelative("lanes");
+        lanes.arraySize = length.intValue;
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < length.intValue; i++)
         {
             SerializedProperty notes = lanes.GetArrayElementAtIndex(i).FindPropertyRelative("notes");
             newPos.height = 18f;
-            notes.arraySize = length.intValue;
+            notes.arraySize = 4;
             newPos.width = position.width / 4;
-            for (int j = 0; j < length.intValue; j++)
+            for (int j = 0; j < 4; j++)
             {
                 EditorGUI.PropertyField(newPos, notes.GetArrayElementAtIndex(j), GUIContent.none);
                 //newPos.x += newPos.width;

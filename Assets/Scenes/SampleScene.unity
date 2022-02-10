@@ -574,6 +574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 120
   beatsToPlayer: 3
+  enemy: {fileID: 1394690539}
   noteRef: {fileID: 5767885713068944918, guid: fcd6cacd3fb999740955a430ccf37b0b, type: 3}
   debugMode: 0
 --- !u!4 &597814585
@@ -1041,12 +1042,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack:
-    length: 4
+    length: 8
     lanes:
-    - notes: 00000000
-    - notes: 00000001
-    - notes: 00000100
     - notes: 01010000
+    - notes: 00000100
+    - notes: 00000000
+    - notes: 00000100
+    - notes: 00010000
+    - notes: 00000001
+    - notes: 01000000
+    - notes: 00000100
 --- !u!1 &1544896105
 GameObject:
   m_ObjectHideFlags: 0
