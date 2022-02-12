@@ -3,8 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+
+    //vars
     public bool isPaused;
     public GameObject pauseMenu;
+
+    private GameController gc;
+    private void Start()
+    {
+        gc = GetComponent<GameController>();
+    }
 
     private void Update()
     {
@@ -21,7 +29,6 @@ public class PauseMenu : MonoBehaviour
         }
        
     }
-
 
     public void Resume()
     {
@@ -47,4 +54,6 @@ public class PauseMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+
 }
