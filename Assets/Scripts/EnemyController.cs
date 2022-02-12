@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    //public List<AttackPattern> attacks = new List<AttackPattern>();
-    public AttackPattern attack;
+    public List<AttackPattern> attacks = new List<AttackPattern>();
+   // public AttackPattern attack;
 }
 
 [System.Serializable]

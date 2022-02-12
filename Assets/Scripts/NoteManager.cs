@@ -24,16 +24,6 @@ public class NoteManager : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        print("AAAAAAAAA");
-        print(enemy.attack.lanes.Length);
-        foreach (AttackPattern.lane a in enemy.attack.lanes)
-        {
-            foreach (bool b in a.notes)
-            {
-                print(b);
-            }
-        }
-
         for (int i = 0; i < 4; ++i)
         {
             lanes.Add(new Queue<NoteController>());
