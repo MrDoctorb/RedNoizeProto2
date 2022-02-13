@@ -10,12 +10,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float goodHitRange;
     [SerializeField] float perfectHitLine;
 
+    [SerializeField] int scaleNum = 0;
+
     #region Player Sounds
     [SerializeField] AudioSource combatSound;
+    [SerializeField] AudioClip flatB;
     [SerializeField] AudioClip lowC;
+    [SerializeField] AudioClip flatD;
     [SerializeField] AudioClip flatE;
+    [SerializeField] AudioClip F;
     [SerializeField] AudioClip G;
+    [SerializeField] AudioClip sharpG;
     [SerializeField] AudioClip hiC;
+    [SerializeField] AudioClip hiFlatD;
+    [SerializeField] AudioClip hiFlatE;
+    [SerializeField] AudioClip hiF;
     #endregion
 
 
@@ -30,25 +39,113 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (Input.GetKeyDown("q"))
+        if (Input.GetKeyDown(KeyCode.UpArrow) && scaleNum != 3)
         {
-            BlockLane(0);
-            combatSound.PlayOneShot(lowC);
+            scaleNum += 1;
         }
-        if (Input.GetKeyDown("w"))
+        else if (Input.GetKeyDown(KeyCode.DownArrow) && scaleNum != 0)
         {
-            BlockLane(1);
-            combatSound.PlayOneShot(flatE);
+            scaleNum -= 1;
         }
-        if (Input.GetKeyDown("e"))
+
+        switch(scaleNum)
         {
-            BlockLane(2);
-            combatSound.PlayOneShot(G);
-        }
-        if (Input.GetKeyDown("r"))
-        {
-            BlockLane(3);
-            combatSound.PlayOneShot(hiC);
+            case 3:
+                #region F Scale
+                if (Input.GetKeyDown("q"))
+                {
+                    BlockLane(0);
+                    combatSound.PlayOneShot(F);
+                }
+                if (Input.GetKeyDown("w"))
+                {
+                    BlockLane(1);
+                    combatSound.PlayOneShot(sharpG);
+                }
+                if (Input.GetKeyDown("e"))
+                {
+                    BlockLane(2);
+                    combatSound.PlayOneShot(hiFlatD);
+                }
+                if (Input.GetKeyDown("r"))
+                {
+                    BlockLane(3);
+                    combatSound.PlayOneShot(hiF);
+                }
+                #endregion
+                break;
+            case 2:
+                #region E Flat Scale
+                if (Input.GetKeyDown("q"))
+                {
+                    BlockLane(0);
+                    combatSound.PlayOneShot(flatE);
+                }
+                if (Input.GetKeyDown("w"))
+                {
+                    BlockLane(1);
+                    combatSound.PlayOneShot(G);
+                }
+                if (Input.GetKeyDown("e"))
+                {
+                    BlockLane(2);
+                    combatSound.PlayOneShot(flatB);
+                }
+                if (Input.GetKeyDown("r"))
+                {
+                    BlockLane(3);
+                    combatSound.PlayOneShot(hiFlatE);
+                }
+                #endregion
+                break;
+            case 1:
+                #region D Flat Scale
+                if (Input.GetKeyDown("q"))
+                {
+                    BlockLane(0);
+                    combatSound.PlayOneShot(flatD);
+                }
+                if (Input.GetKeyDown("w"))
+                {
+                    BlockLane(1);
+                    combatSound.PlayOneShot(F);
+                }
+                if (Input.GetKeyDown("e"))
+                {
+                    BlockLane(2);
+                    combatSound.PlayOneShot(sharpG);
+                }
+                if (Input.GetKeyDown("r"))
+                {
+                    BlockLane(3);
+                    combatSound.PlayOneShot(hiFlatD);
+                }
+                #endregion
+                break;
+            default:
+                #region C Scale
+                if (Input.GetKeyDown("q"))
+                {
+                    BlockLane(0);
+                    combatSound.PlayOneShot(lowC);
+                }
+                if (Input.GetKeyDown("w"))
+                {
+                    BlockLane(1);
+                    combatSound.PlayOneShot(flatE);
+                }
+                if (Input.GetKeyDown("e"))
+                {
+                    BlockLane(2);
+                    combatSound.PlayOneShot(G);
+                }
+                if (Input.GetKeyDown("r"))
+                {
+                    BlockLane(3);
+                    combatSound.PlayOneShot(hiC);
+                }
+                #endregion
+                break;
         }
     }
 
