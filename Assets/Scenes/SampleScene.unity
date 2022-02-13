@@ -959,10 +959,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpm: 120
-  beatsToPlayer: 3
+  beatsToPlayer: 4
   enemy: {fileID: 1394690539}
   noteRef: {fileID: 5767885713068944918, guid: fcd6cacd3fb999740955a430ccf37b0b, type: 3}
   debugMode: 0
+  backgroundMusic: {fileID: 1787858295}
+  combatSound: {fileID: 1244040797}
+  sounds:
+  - {fileID: 8300000, guid: d44587cf7edfbc14191dcd2bc12bd580, type: 3}
+  - {fileID: 8300000, guid: 0751193b8da00de4fb22589f04b56a23, type: 3}
+  - {fileID: 8300000, guid: b7474529a4ed1be4d88ece074770bb7b, type: 3}
+  - {fileID: 8300000, guid: 1d60f86b1840cba4c804f629ba650a9c, type: 3}
 --- !u!4 &597814585
 Transform:
   m_ObjectHideFlags: 0
@@ -1281,7 +1288,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1030191914
 MonoBehaviour:
@@ -1298,7 +1305,7 @@ MonoBehaviour:
   badHitRange: 0.75
   goodHitRange: 0.25
   perfectHitLine: -1.5
-  CombatSound: {fileID: 1244040797}
+  combatSound: {fileID: 1244040797}
   lowC: {fileID: 8300000, guid: c79dea39d8bcea54ea125f337dc9ae17, type: 3}
   flatE: {fileID: 8300000, guid: 30fc9688eecba3745a1a93f6bb3ca166, type: 3}
   G: {fileID: 8300000, guid: a21a503964b3acd40b25fb4743edb2eb, type: 3}
@@ -1946,7 +1953,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1394690539
 MonoBehaviour:
@@ -1960,7 +1967,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e4523acfce83c439fd89663423b630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attacks: []
+  attacks:
+  - length: 4
+    lanes:
+    - notes: 01000000
+    - notes: 00010000
+    - notes: 00000100
+    - notes: 00000001
+  - length: 4
+    lanes:
+    - notes: 01000000
+    - notes: 00010001
+    - notes: 01000100
+    - notes: 00000100
 --- !u!1 &1505445817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2296,7 +2315,7 @@ Transform:
   - {fileID: 1544896107}
   - {fileID: 947640348}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1709627682
 GameObject:
@@ -2545,8 +2564,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 00038b1a565320e448cf15a0afe245ae, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: ed1fec289293ad34eb1ae8d4806edb01, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -2837,7 +2856,7 @@ Transform:
   - {fileID: 1737562708}
   - {fileID: 357288636}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2058809554
 GameObject:

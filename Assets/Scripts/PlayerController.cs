@@ -11,13 +11,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float perfectHitLine;
 
     #region Player Sounds
-    [SerializeField] AudioSource CombatSound;
-
+    [SerializeField] AudioSource combatSound;
     [SerializeField] AudioClip lowC;
     [SerializeField] AudioClip flatE;
     [SerializeField] AudioClip G;
     [SerializeField] AudioClip hiC;
     #endregion
+
 
     //Set the global Player Reference to this player
     private void Start()
@@ -33,22 +33,22 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown("q"))
         {
             BlockLane(0);
-            CombatSound.PlayOneShot(lowC);
+            combatSound.PlayOneShot(lowC);
         }
-        else if (Input.GetKeyDown("w"))
+        if (Input.GetKeyDown("w"))
         {
             BlockLane(1);
-            CombatSound.PlayOneShot(flatE);
+            combatSound.PlayOneShot(flatE);
         }
-        else if (Input.GetKeyDown("e"))
+        if (Input.GetKeyDown("e"))
         {
             BlockLane(2);
-            CombatSound.PlayOneShot(G);
+            combatSound.PlayOneShot(G);
         }
-        else if (Input.GetKeyDown("r"))
+        if (Input.GetKeyDown("r"))
         {
             BlockLane(3);
-            CombatSound.PlayOneShot(hiC);
+            combatSound.PlayOneShot(hiC);
         }
     }
 
@@ -71,14 +71,14 @@ public class PlayerController : MonoBehaviour
             note.transform.position.y > perfectHitLine - goodHitRange)
         {
             print("Nice Hit!");
-            
+
             BlockNote(note, lane);
         }
         else if (note.transform.position.y < perfectHitLine + badHitRange &&
             note.transform.position.y > perfectHitLine - badHitRange)
         {
             print("Eh, I guess");
-            
+
             BlockNote(note, lane);
 
             //Penalty 
@@ -96,12 +96,12 @@ public class PlayerController : MonoBehaviour
         //Remove note from the queue
         nm.lanes[lane].Dequeue();
 
-        if(note.catchable)
+        if (note.catchable)
         {
             Destroy(note.gameObject);
             //Increase catch values
             //TODO
-            
+
         }
         else
         {
@@ -124,6 +124,7 @@ public class PlayerController : MonoBehaviour
         Destroy(note.gameObject, ((float)nm.bpm / 60) * nm.beatsToPlayer);
 
     }
+
 
     public void TakeDamage()
     {

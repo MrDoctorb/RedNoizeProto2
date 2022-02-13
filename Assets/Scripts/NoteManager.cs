@@ -13,11 +13,18 @@ public class NoteManager : MonoBehaviour
     //The note spawning is beat 0
     public int beatsToPlayer;
     public EnemyController enemy;
+    int waiting;
+
+    Queue<List<bool>> currentAttack;
 
     public GameObject noteRef;
 
     //If set to true the game will pause after every beat
     [SerializeField] bool debugMode;
+
+    [SerializeField] AudioSource backgroundMusic;
+    [SerializeField] AudioSource combatSound;
+    [SerializeField] List<AudioClip> sounds;
 
     /// <summary>
     /// Initializes our 4 lanes and starts the metronome
@@ -29,10 +36,25 @@ public class NoteManager : MonoBehaviour
             lanes.Add(new Queue<NoteController>());
         }
 
-        InvokeRepeating("Metronome", 0, 60 / (float)bpm);
-
         //Sets the global note manager equal to this object
         nm = this;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && currentAttack == null)
+        {
+            print("A");
+            LoadNewAttack();
+
+            InvokeRepeating("Metronome", 0, 60 / (float)bpm);
+            Invoke("StartSong", 0);
+        }
+    }
+
+    void StartSong()
+    {
+        backgroundMusic.Play();
     }
 
     /// <summary>
@@ -42,6 +64,8 @@ public class NoteManager : MonoBehaviour
     /// <param name="lane">The given lane</param>
     void SpawnNote(int lane)
     {
+        combatSound.PlayOneShot(sounds[lane]);
+
         NoteController note = Instantiate(noteRef, new Vector2(LaneNumToXPos(lane), 5.5f),
                                     Quaternion.identity).GetComponent<NoteController>();
 
@@ -74,9 +98,25 @@ public class NoteManager : MonoBehaviour
     /// </summary>
     void Metronome()
     {
-        if (Random.Range(0, 5) == 0)
+        if (currentAttack.Count > 0)
         {
-            SpawnNote(Random.Range(0, 4));
+            List<bool> currentNotes = currentAttack.Dequeue();
+            for (int i = 0; i < 4; ++i)
+            {
+                if (currentNotes[i])
+                {
+                    SpawnNote(i);
+                }
+            }
+        }
+        else if (waiting > 1)
+        {
+            --waiting;
+            print("WAIT");
+        }
+        else
+        {
+            LoadNewAttack();
         }
 
         if (debugMode)
@@ -92,4 +132,22 @@ public class NoteManager : MonoBehaviour
 
     }
 
+    void LoadNewAttack()
+    {
+        currentAttack = new Queue<List<bool>>();
+        AttackPattern attack = enemy.attacks[Random.Range(0, enemy.attacks.Count)];
+
+        foreach (AttackPattern.lane l in attack.lanes)
+        {
+            List<bool> row = new List<bool>();
+            for (int i = 0; i < 4; ++i)
+            {
+                row.Add(l.notes[i]);
+            }
+            currentAttack.Enqueue(row);
+        }
+
+        waiting = currentAttack.Count * 2;
+        beatsToPlayer = currentAttack.Count;
+    }
 }
