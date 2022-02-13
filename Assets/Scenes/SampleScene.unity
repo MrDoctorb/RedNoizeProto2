@@ -1298,6 +1298,11 @@ MonoBehaviour:
   badHitRange: 0.75
   goodHitRange: 0.25
   perfectHitLine: -1.5
+  CombatSound: {fileID: 1244040797}
+  lowC: {fileID: 8300000, guid: c79dea39d8bcea54ea125f337dc9ae17, type: 3}
+  flatE: {fileID: 8300000, guid: 30fc9688eecba3745a1a93f6bb3ca166, type: 3}
+  G: {fileID: 8300000, guid: a21a503964b3acd40b25fb4743edb2eb, type: 3}
+  hiC: {fileID: 8300000, guid: 0b34eb186950ffa41920ea5308b1146e, type: 3}
 --- !u!1 &1082784649
 GameObject:
   m_ObjectHideFlags: 0

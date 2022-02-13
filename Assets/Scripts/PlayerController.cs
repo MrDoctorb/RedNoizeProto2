@@ -10,6 +10,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float goodHitRange;
     [SerializeField] float perfectHitLine;
 
+    #region Player Sounds
+    [SerializeField] AudioSource CombatSound;
+
+    [SerializeField] AudioClip lowC;
+    [SerializeField] AudioClip flatE;
+    [SerializeField] AudioClip G;
+    [SerializeField] AudioClip hiC;
+    #endregion
+
     //Set the global Player Reference to this player
     private void Start()
     {
@@ -24,18 +33,22 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown("q"))
         {
             BlockLane(0);
+            CombatSound.PlayOneShot(lowC);
         }
         else if (Input.GetKeyDown("w"))
         {
             BlockLane(1);
+            CombatSound.PlayOneShot(flatE);
         }
         else if (Input.GetKeyDown("e"))
         {
             BlockLane(2);
+            CombatSound.PlayOneShot(G);
         }
         else if (Input.GetKeyDown("r"))
         {
             BlockLane(3);
+            CombatSound.PlayOneShot(hiC);
         }
     }
 
