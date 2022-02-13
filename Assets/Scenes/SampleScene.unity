@@ -1827,17 +1827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e4523acfce83c439fd89663423b630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack:
-    length: 8
-    lanes:
-    - notes: 01010000
-    - notes: 00000100
-    - notes: 00000000
-    - notes: 00000100
-    - notes: 00010000
-    - notes: 00000001
-    - notes: 01000000
-    - notes: 00000100
+  attacks: []
 --- !u!1 &1505445817
 GameObject:
   m_ObjectHideFlags: 0
