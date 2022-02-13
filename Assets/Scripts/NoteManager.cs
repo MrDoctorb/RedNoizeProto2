@@ -23,6 +23,7 @@ public class NoteManager : MonoBehaviour
     [SerializeField] bool debugMode;
 
     [SerializeField] AudioSource backgroundMusic;
+    [SerializeField] AudioSource metronomeTrack;
     [SerializeField] AudioSource combatSound;
     [SerializeField] List<AudioClip> sounds;
 
@@ -55,6 +56,7 @@ public class NoteManager : MonoBehaviour
     void StartSong()
     {
         backgroundMusic.Play();
+        metronomeTrack.Play();
     }
 
     /// <summary>
