@@ -963,6 +963,7 @@ MonoBehaviour:
   beatsToPlayer: 4
   enemy: {fileID: 1394690539}
   noteRef: {fileID: 5767885713068944918, guid: fcd6cacd3fb999740955a430ccf37b0b, type: 3}
+  metronome: {fileID: 1367973604}
   timeAtLastMetronome: 0
   debugMode: 0
   backgroundMusic: {fileID: 1787858295}
@@ -1893,8 +1894,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1367973603}
   - component: {fileID: 1367973602}
+  - component: {fileID: 1367973604}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Metronome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1967,6 +1969,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1367973604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367973601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a68618298cf74a4eb754476cd504dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1394690536
 GameObject:
   m_ObjectHideFlags: 0

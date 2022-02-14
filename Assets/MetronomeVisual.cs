@@ -12,10 +12,10 @@ public class MetronomeVisual : MonoBehaviour
 
     private void Update()
     {
-        float secondsPerBeat = 60 / nm.bpm; 
+        float secondsPerBeat = 60 / (float)nm.bpm;
         Vector2 newScale = new Vector2();
-        newScale.x = Mathf.Lerp(transform.localScale.x, Vector2.one.x, (secondsPerBeat / 2) * Time.deltaTime);
-        newScale.y = Mathf.Lerp(transform.localScale.y, Vector2.one.y, (secondsPerBeat / 2) * Time.deltaTime);
+        newScale.x = Mathf.Lerp(transform.localScale.x, Vector2.one.x, (secondsPerBeat) * Time.deltaTime);
+        newScale.y = Mathf.Lerp(transform.localScale.y, Vector2.one.y, (secondsPerBeat) * Time.deltaTime);
         transform.localScale = newScale;
 
     }
