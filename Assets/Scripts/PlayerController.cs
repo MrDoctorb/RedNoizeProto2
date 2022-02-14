@@ -183,8 +183,17 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            print("Swing and a miss");
-            ThrowNote(lane);
+            float nextAccurateBeat = nm.timeAtLastMetronome + (60 / nm.bpm);
+            if (Time.time < nextAccurateBeat + .1f && Time.time > nextAccurateBeat - .1f)
+            {
+                ThrowNote(lane);
+            }
+            else
+            {
+                print("Swing and a miss");
+                //TO DO Penalty
+            }
+
         }
     }
 

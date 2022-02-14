@@ -19,6 +19,8 @@ public class NoteManager : MonoBehaviour
 
     public GameObject noteRef;
 
+    public float timeAtLastMetronome;
+
     //If set to true the game will pause after every beat
     [SerializeField] bool debugMode;
 
@@ -100,6 +102,8 @@ public class NoteManager : MonoBehaviour
     /// </summary>
     void Metronome()
     {
+        timeAtLastMetronome = Time.time;
+
         if (currentAttack.Count > 0)
         {
             List<bool> currentNotes = currentAttack.Dequeue();
