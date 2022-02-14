@@ -9,11 +9,13 @@ public class NoteManager : MonoBehaviour
     //By default 4 lanes. Each lane corresponds to a button
     public List<Queue<NoteController>> lanes = new List<Queue<NoteController>>();
     public int bpm;
+    public NoteType type;
 
     //The note spawning is beat 0
     public int beatsToPlayer;
     public EnemyController enemy;
     int waiting;
+    int segmentsTillOnBeat = 0;
 
     Queue<List<bool>> currentAttack;
 
@@ -50,7 +52,7 @@ public class NoteManager : MonoBehaviour
             print("A");
             LoadNewAttack();
 
-            InvokeRepeating("Metronome", 0, 60 / (float)bpm);
+            InvokeRepeating("Metronome", 0, (60 / (float)bpm) * (int)type);
             Invoke("StartSong", 0);
         }
     }
@@ -130,10 +132,17 @@ public class NoteManager : MonoBehaviour
             Debug.Break();
         }
 
-        //Causes the notes to flash on the beat
-        foreach (NoteController note in FindObjectsOfType<NoteController>())
+        if(segmentsTillOnBeat == 0)
         {
-            note.Flash();
+            //Causes the notes to flash on the beat
+            foreach (NoteController note in FindObjectsOfType<NoteController>())
+            {
+                note.Flash();
+            }
+        }
+        else
+        {
+            segmentsTillOnBeat = (int)type - 1;
         }
 
     }
@@ -156,4 +165,12 @@ public class NoteManager : MonoBehaviour
         waiting = currentAttack.Count * 2;
         beatsToPlayer = currentAttack.Count;
     }
+}
+
+
+public enum NoteType
+{
+    quarter = 1,
+    eighth = 2,
+    sixteenth = 3
 }

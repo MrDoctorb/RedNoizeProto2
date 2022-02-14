@@ -190,9 +190,8 @@ public class PlayerController : MonoBehaviour
     void TryThrow(int lane)
     {
         float nextAccurateBeat = nm.timeAtLastMetronome + (60 / nm.bpm);
-        if (Time.time < nextAccurateBeat + .1f && Time.time > nextAccurateBeat - .1f)
+        if (Time.time < nextAccurateBeat + .15f && Time.time > nextAccurateBeat - .15f)
         {
-            print("A");
             ThrowNote(lane);
         }
         else

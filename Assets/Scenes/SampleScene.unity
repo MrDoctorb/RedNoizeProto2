@@ -959,6 +959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpm: 120
+  type: 2
   beatsToPlayer: 4
   enemy: {fileID: 1394690539}
   noteRef: {fileID: 5767885713068944918, guid: fcd6cacd3fb999740955a430ccf37b0b, type: 3}
