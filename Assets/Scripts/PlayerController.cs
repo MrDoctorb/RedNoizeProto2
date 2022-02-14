@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
             note.transform.position.y > perfectHitLine - goodHitRange)
         {
             StartCoroutine(FeedBack("Nice Hit!"));
-            print("Nice Hit!");
+            //print("Nice Hit!");
 
             BlockNote(note, lane);
         }
@@ -179,7 +179,7 @@ public class PlayerController : MonoBehaviour
             note.transform.position.y > perfectHitLine - badHitRange)
         {
             StartCoroutine(FeedBack("Eh, I guess"));
-            print("Eh, I guess");
+            //print("Eh, I guess");
 
             BlockNote(note, lane);
 
@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             StartCoroutine(FeedBack("Swing and a miss"));
-            print("Swing and a miss");
+           // print("Swing and a miss");
             //TO DO Penalty
         }
     }
