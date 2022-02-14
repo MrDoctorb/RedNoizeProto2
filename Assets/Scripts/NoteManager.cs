@@ -41,6 +41,7 @@ public class NoteManager : MonoBehaviour
             lanes.Add(new Queue<NoteController>());
         }
 
+
         //Sets the global note manager equal to this object
         nm = this;
     }
@@ -49,18 +50,18 @@ public class NoteManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && currentAttack == null)
         {
-            print("A");
-            LoadNewAttack();
-
-            InvokeRepeating("Metronome", 0, (60 / (float)bpm) * (int)type);
+            currentAttack = new Queue<List<bool>>();
+            InvokeRepeating("Metronome", 0, (60 / (float)bpm) / (int) type);
             Invoke("StartSong", 0);
+
+            waiting = 8;
         }
     }
 
     void StartSong()
     {
         backgroundMusic.Play();
-        metronomeTrack.Play();
+        //metronomeTrack.Play();
     }
 
     /// <summary>
@@ -139,10 +140,11 @@ public class NoteManager : MonoBehaviour
             {
                 note.Flash();
             }
+            segmentsTillOnBeat = (int)type - 1;
         }
         else
         {
-            segmentsTillOnBeat = (int)type - 1;
+            --segmentsTillOnBeat;
         }
 
     }
@@ -172,5 +174,5 @@ public enum NoteType
 {
     quarter = 1,
     eighth = 2,
-    sixteenth = 3
+    sixteenth = 4
 }
