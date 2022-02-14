@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
             scaleNum -= 1;
         }
 
-        switch(scaleNum)
+        switch (scaleNum)
         {
             case 3:
                 #region F Scale
@@ -157,8 +157,7 @@ public class PlayerController : MonoBehaviour
     {
         if (nm.lanes[lane].Count == 0)
         {
-            print("Swing and a miss");
-            ThrowNote(lane);
+            TryThrow(lane);
             return;
         }
         NoteController note = nm.lanes[lane].Peek();
@@ -183,17 +182,23 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            float nextAccurateBeat = nm.timeAtLastMetronome + (60 / nm.bpm);
-            if (Time.time < nextAccurateBeat + .1f && Time.time > nextAccurateBeat - .1f)
-            {
-                ThrowNote(lane);
-            }
-            else
-            {
-                print("Swing and a miss");
-                //TO DO Penalty
-            }
+            TryThrow(lane);
 
+        }
+    }
+
+    void TryThrow(int lane)
+    {
+        float nextAccurateBeat = nm.timeAtLastMetronome + (60 / nm.bpm);
+        if (Time.time < nextAccurateBeat + .1f && Time.time > nextAccurateBeat - .1f)
+        {
+            print("A");
+            ThrowNote(lane);
+        }
+        else
+        {
+            print("Swing and a miss");
+            //TO DO Penalty
         }
     }
 
