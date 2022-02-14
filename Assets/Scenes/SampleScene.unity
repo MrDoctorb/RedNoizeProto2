@@ -963,6 +963,7 @@ MonoBehaviour:
   beatsToPlayer: 4
   enemy: {fileID: 1394690539}
   noteRef: {fileID: 5767885713068944918, guid: fcd6cacd3fb999740955a430ccf37b0b, type: 3}
+  metronome: {fileID: 0}
   timeAtLastMetronome: 0
   debugMode: 0
   backgroundMusic: {fileID: 1787858295}
@@ -2089,6 +2090,16 @@ MonoBehaviour:
     - notes: 00010000
     - notes: 00000101
     - notes: 00000100
+  - length: 8
+    lanes:
+    - notes: 00010100
+    - notes: 01000001
+    - notes: 01000001
+    - notes: 00010100
+    - notes: 00010100
+    - notes: 01000001
+    - notes: 01000001
+    - notes: 00010100
 --- !u!1 &1425627331
 GameObject:
   m_ObjectHideFlags: 0
