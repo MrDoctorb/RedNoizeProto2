@@ -140,7 +140,7 @@ public class NoteManager : MonoBehaviour
             {
                 note.Flash();
             }
-            segmentsTillOnBeat = ((int)type * 2) - 1;
+            segmentsTillOnBeat = (int)type - 1;
         }
         else
         {
@@ -174,5 +174,5 @@ public enum NoteType
 {
     quarter = 1,
     eighth = 2,
-    sixteenth = 3
+    sixteenth = 4
 }
