@@ -2141,6 +2141,18 @@ MonoBehaviour:
     - notes: 00010001
     - notes: 01000100
     - notes: 00000100
+  - length: 4
+    lanes:
+    - notes: 01000000
+    - notes: 00000001
+    - notes: 00010000
+    - notes: 00000100
+  - length: 4
+    lanes:
+    - notes: 01000000
+    - notes: 00010000
+    - notes: 00000101
+    - notes: 00000100
 --- !u!1 &1505445817
 GameObject:
   m_ObjectHideFlags: 0
