@@ -22,6 +22,7 @@ public class NoteManager : MonoBehaviour
     Queue<List<bool>> currentAttack;
 
     public GameObject noteRef;
+    [SerializeField] MetronomeVisual metronome;
 
     public float timeAtLastMetronome;
 
@@ -142,6 +143,8 @@ public class NoteManager : MonoBehaviour
             {
                 note.Flash();
             }
+
+            metronome.Pulse();
             segmentsTillOnBeat = (int)type - 1;
         }
         else
