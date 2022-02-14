@@ -19,30 +19,27 @@ public class LaneMarkerBehaviour : MonoBehaviour
 
     private void Update()
     {
-        
-            if(Input.GetKey("q"))
-            {
-                laneOne.SetActive(true);
-            }
-            else if (Input.GetKey("w"))
-            {
-                laneTwo.SetActive(true);
-            }
-            else if (Input.GetKey("e"))
-            {
-                    laneThree.SetActive(true);
-            }
-            else if (Input.GetKey("r"))
-            {
-                laneFour.SetActive(true);
-            }
-            else
-            {
-                laneFour.SetActive(false);
-                laneThree.SetActive(false);
-                laneTwo.SetActive(false);
-                laneOne.SetActive(false);
-            }
+        laneFour.SetActive(false);
+        laneThree.SetActive(false);
+        laneTwo.SetActive(false);
+        laneOne.SetActive(false);
+
+        if (Input.GetKey("q"))
+        {
+            laneOne.SetActive(true);
+        }
+        if (Input.GetKey("w"))
+        {
+            laneTwo.SetActive(true);
+        }
+        if (Input.GetKey("e"))
+        {
+            laneThree.SetActive(true);
+        }
+        if (Input.GetKey("r"))
+        {
+            laneFour.SetActive(true);
+        }
     }
 
 }
