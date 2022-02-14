@@ -140,10 +140,11 @@ public class NoteManager : MonoBehaviour
             {
                 note.Flash();
             }
+            segmentsTillOnBeat = ((int)type * 2) - 1;
         }
         else
         {
-            segmentsTillOnBeat = ((int)type * 2) - 1;
+            --segmentsTillOnBeat;
         }
 
     }
