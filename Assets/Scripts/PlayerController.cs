@@ -195,16 +195,20 @@ public class PlayerController : MonoBehaviour
 
     void TryThrow(int lane)
     {
-        float nextAccurateBeat = nm.timeAtLastMetronome + (60 / nm.bpm);
-        if (Time.time < nextAccurateBeat + .15f && Time.time > nextAccurateBeat - .15f)
+        if(nm.canThrow)
         {
-            ThrowNote(lane);
-        }
-        else
-        {
-            StartCoroutine(FeedBack("Swing and a miss"));
-           // print("Swing and a miss");
-            //TO DO Penalty
+            //nm.canThrow = false;
+            float nextAccurateBeat = nm.timeAtLastMetronome + (60 / nm.bpm);
+            if (Time.time < nextAccurateBeat + .15f && Time.time > nextAccurateBeat - .15f)
+            {
+                ThrowNote(lane);
+            }
+            else
+            {
+                StartCoroutine(FeedBack("Swing and a miss"));
+                // print("Swing and a miss");
+                //TO DO Penalty
+            }
         }
     }
 

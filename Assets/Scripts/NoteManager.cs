@@ -16,6 +16,8 @@ public class NoteManager : MonoBehaviour
     public EnemyController enemy;
     int waiting;
     int segmentsTillOnBeat = 0;
+    [System.NonSerialized]
+    public bool canThrow = true;
 
     Queue<List<bool>> currentAttack;
 
@@ -121,11 +123,11 @@ public class NoteManager : MonoBehaviour
         else if (waiting > 1)
         {
             --waiting;
-            print("WAIT");
         }
         else
         {
             LoadNewAttack();
+            canThrow = true;
         }
 
         if (debugMode)
@@ -164,7 +166,7 @@ public class NoteManager : MonoBehaviour
             currentAttack.Enqueue(row);
         }
 
-        waiting = currentAttack.Count * 2;
+        waiting = currentAttack.Count * 2 + 2;
         beatsToPlayer = currentAttack.Count;
     }
 }
