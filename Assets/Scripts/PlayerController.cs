@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static RedNoize.References;
+using TMPro;
 public class PlayerController : MonoBehaviour
 {
     //Bad hit range should be larger than good hit Range
@@ -26,6 +27,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioClip hiFlatE;
     [SerializeField] AudioClip hiF;
     #endregion
+
+    [SerializeField] TextMeshProUGUI feedbackText;
+  
 
 
     //Set the global Player Reference to this player
@@ -166,6 +170,7 @@ public class PlayerController : MonoBehaviour
         if (note.transform.position.y < perfectHitLine + goodHitRange &&
             note.transform.position.y > perfectHitLine - goodHitRange)
         {
+            StartCoroutine(FeedBack("Nice Hit!"));
             print("Nice Hit!");
 
             BlockNote(note, lane);
@@ -173,6 +178,7 @@ public class PlayerController : MonoBehaviour
         else if (note.transform.position.y < perfectHitLine + badHitRange &&
             note.transform.position.y > perfectHitLine - badHitRange)
         {
+            StartCoroutine(FeedBack("Eh, I guess"));
             print("Eh, I guess");
 
             BlockNote(note, lane);
@@ -196,6 +202,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            StartCoroutine(FeedBack("Swing and a miss"));
             print("Swing and a miss");
             //TO DO Penalty
         }
@@ -247,5 +254,13 @@ public class PlayerController : MonoBehaviour
         sprite.color = Color.red;
         yield return new WaitForSeconds(.75f);
         sprite.color = Color.white;
+    }
+
+    IEnumerator FeedBack(string feedback)
+    {
+        feedbackText.gameObject.SetActive(true);
+        feedbackText.text = feedback;
+        yield return new WaitForSeconds(.50f);
+        feedbackText.gameObject.SetActive(false);
     }
 }
