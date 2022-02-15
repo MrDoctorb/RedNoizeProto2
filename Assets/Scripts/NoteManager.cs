@@ -54,10 +54,14 @@ public class NoteManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && currentAttack == null)
         {
             currentAttack = new Queue<List<bool>>();
-            InvokeRepeating("Metronome", 0, (60 / (float)bpm) / (int) type);
+            InvokeRepeating("Metronome", 0, (60 / (float)bpm) / (int)type);
             Invoke("StartSong", 0);
 
             waiting = 8;
+        }
+        if (currentAttack != null)
+        {
+            print(IsPlayerTurn());
         }
     }
 
@@ -82,7 +86,7 @@ public class NoteManager : MonoBehaviour
         note.lane = lane;
 
         float beatsPerSecond = ((float)bpm / 60);
-        note.GetComponent<Rigidbody2D>().velocity = new Vector2(0, (-7 * beatsPerSecond) / beatsToPlayer);
+        note.GetComponent<Rigidbody2D>().velocity = new Vector2(0, (-7 * beatsPerSecond) / (beatsToPlayer / (float)type));
 
         if (Random.Range(0, 4) == 0)
         {
@@ -136,7 +140,7 @@ public class NoteManager : MonoBehaviour
             Debug.Break();
         }
 
-        if(segmentsTillOnBeat == 0)
+        if (segmentsTillOnBeat == 0)
         {
             //Causes the notes to flash on the beat
             foreach (NoteController note in FindObjectsOfType<NoteController>())
@@ -172,6 +176,12 @@ public class NoteManager : MonoBehaviour
         waiting = currentAttack.Count * 2 + 2;
         beatsToPlayer = currentAttack.Count;
     }
+
+    public bool IsPlayerTurn()
+    {
+        return currentAttack.Count < 1 && lanes[0].Count == 0 && lanes[1].Count == 0 && lanes[2].Count == 0 && lanes[3].Count == 0;
+    }
+
 }
 
 
