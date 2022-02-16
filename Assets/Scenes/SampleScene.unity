@@ -1479,14 +1479,14 @@ MonoBehaviour:
   perfectHitLine: -1.5
   scaleNum: 0
   combatSound: {fileID: 1244040797}
-  kick: {fileID: 8300000, guid: 52fd580e916e2b44aaef7a8a2eca3854, type: 3}
-  snare: {fileID: 8300000, guid: f65535cd50dec994bb091f007f42ef6d, type: 3}
-  clap: {fileID: 8300000, guid: 2d309b966b47a0a4a9bae99f91277b41, type: 3}
-  cymbal: {fileID: 8300000, guid: 85b3d2ba6bbb87e4d9ff04c12b1e5900, type: 3}
-  bassC: {fileID: 8300000, guid: 7861f4008ce115a4b8d2eed38a36f739, type: 3}
-  bassFlatE: {fileID: 8300000, guid: 47ef26aa258f84d4890f4f19840e12ac, type: 3}
-  bassG: {fileID: 8300000, guid: 419eebbf6992c294185413cac8baabec, type: 3}
-  bassHiC: {fileID: 8300000, guid: 24f866cbb5f474c4bae3530eb688ea35, type: 3}
+  kick: {fileID: 8300000, guid: 0cb275bf1bfc4914aae24eab3b8b57f3, type: 3}
+  snare: {fileID: 8300000, guid: 9cb2b7cd99ab13349b4f8fc9f2257c16, type: 3}
+  clap: {fileID: 8300000, guid: ebe7ad3e2ac16db4db761e005aa2a1dd, type: 3}
+  cymbal: {fileID: 8300000, guid: 9ab061968bbe7cc49aea47698a9c194e, type: 3}
+  bassC: {fileID: 8300000, guid: f03b39f3bad299e44831ce15494429b9, type: 3}
+  bassFlatE: {fileID: 8300000, guid: 11701b911c1c5a84ea45584455716ae1, type: 3}
+  bassG: {fileID: 8300000, guid: 9dd22df4922aeae4786388febb8186c7, type: 3}
+  bassHiC: {fileID: 8300000, guid: 2b52fbe0452ab9a4682489b67d84229d, type: 3}
   lowC: {fileID: 8300000, guid: c79dea39d8bcea54ea125f337dc9ae17, type: 3}
   flatE: {fileID: 8300000, guid: 30fc9688eecba3745a1a93f6bb3ca166, type: 3}
   G: {fileID: 8300000, guid: a21a503964b3acd40b25fb4743edb2eb, type: 3}
