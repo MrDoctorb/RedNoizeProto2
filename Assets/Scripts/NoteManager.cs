@@ -59,10 +59,6 @@ public class NoteManager : MonoBehaviour
 
             waiting = 8;
         }
-        if (currentAttack != null)
-        {
-            print(IsPlayerTurn());
-        }
     }
 
     void StartSong()
