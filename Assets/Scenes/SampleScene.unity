@@ -1311,17 +1311,18 @@ MonoBehaviour:
   perfectHitLine: -1.5
   scaleNum: 0
   combatSound: {fileID: 1244040797}
-  flatB: {fileID: 8300000, guid: aa8fc76511148b142beea97ef6e163cb, type: 3}
+  kick: {fileID: 8300000, guid: 52fd580e916e2b44aaef7a8a2eca3854, type: 3}
+  snare: {fileID: 8300000, guid: f65535cd50dec994bb091f007f42ef6d, type: 3}
+  clap: {fileID: 8300000, guid: 2d309b966b47a0a4a9bae99f91277b41, type: 3}
+  cymbal: {fileID: 8300000, guid: 85b3d2ba6bbb87e4d9ff04c12b1e5900, type: 3}
+  bassC: {fileID: 8300000, guid: 7861f4008ce115a4b8d2eed38a36f739, type: 3}
+  bassFlatE: {fileID: 8300000, guid: 47ef26aa258f84d4890f4f19840e12ac, type: 3}
+  bassG: {fileID: 8300000, guid: 419eebbf6992c294185413cac8baabec, type: 3}
+  bassHiC: {fileID: 8300000, guid: 24f866cbb5f474c4bae3530eb688ea35, type: 3}
   lowC: {fileID: 8300000, guid: c79dea39d8bcea54ea125f337dc9ae17, type: 3}
-  flatD: {fileID: 8300000, guid: 4b7eb6f3bdc79f749a6c1dbf348ef30c, type: 3}
   flatE: {fileID: 8300000, guid: 30fc9688eecba3745a1a93f6bb3ca166, type: 3}
-  F: {fileID: 8300000, guid: 03d45a783eb7bb54382aee763ffc8878, type: 3}
   G: {fileID: 8300000, guid: a21a503964b3acd40b25fb4743edb2eb, type: 3}
-  sharpG: {fileID: 8300000, guid: 185e03708d530cb4a9ff45d407ee534a, type: 3}
   hiC: {fileID: 8300000, guid: 0b34eb186950ffa41920ea5308b1146e, type: 3}
-  hiFlatD: {fileID: 8300000, guid: 5389ee1fdbd3e0d41b68448054bb98a2, type: 3}
-  hiFlatE: {fileID: 8300000, guid: c2a282d88266dfd4cb754ea9d84ca450, type: 3}
-  hiF: {fileID: 8300000, guid: a2294b6dbce6d3240932222cc633081c, type: 3}
   feedbackText: {fileID: 1425627333}
 --- !u!1 &1082784649
 GameObject:

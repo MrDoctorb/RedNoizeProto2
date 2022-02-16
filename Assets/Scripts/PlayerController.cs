@@ -15,17 +15,18 @@ public class PlayerController : MonoBehaviour
 
     #region Player Sounds
     [SerializeField] AudioSource combatSound;
-    [SerializeField] AudioClip flatB;
+    [SerializeField] AudioClip kick;
+    [SerializeField] AudioClip snare;
+    [SerializeField] AudioClip clap;
+    [SerializeField] AudioClip cymbal;
+    [SerializeField] AudioClip bassC;
+    [SerializeField] AudioClip bassFlatE;
+    [SerializeField] AudioClip bassG;
+    [SerializeField] AudioClip bassHiC;
     [SerializeField] AudioClip lowC;
-    [SerializeField] AudioClip flatD;
     [SerializeField] AudioClip flatE;
-    [SerializeField] AudioClip F;
     [SerializeField] AudioClip G;
-    [SerializeField] AudioClip sharpG;
     [SerializeField] AudioClip hiC;
-    [SerializeField] AudioClip hiFlatD;
-    [SerializeField] AudioClip hiFlatE;
-    [SerializeField] AudioClip hiF;
     #endregion
 
     [SerializeField] TextMeshProUGUI feedbackText;
@@ -43,7 +44,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && scaleNum != 3)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && scaleNum != 2)
         {
             scaleNum += 1;
         }
@@ -54,80 +55,56 @@ public class PlayerController : MonoBehaviour
 
         switch (scaleNum)
         {
-            case 3:
-                #region F Scale
-                if (Input.GetKeyDown("q"))
-                {
-                    BlockLane(0);
-                    combatSound.PlayOneShot(F);
-                }
-                if (Input.GetKeyDown("w"))
-                {
-                    BlockLane(1);
-                    combatSound.PlayOneShot(sharpG);
-                }
-                if (Input.GetKeyDown("e"))
-                {
-                    BlockLane(2);
-                    combatSound.PlayOneShot(hiFlatD);
-                }
-                if (Input.GetKeyDown("r"))
-                {
-                    BlockLane(3);
-                    combatSound.PlayOneShot(hiF);
-                }
-                #endregion
-                break;
             case 2:
-                #region E Flat Scale
+                #region Rhythm
                 if (Input.GetKeyDown("q"))
                 {
                     BlockLane(0);
-                    combatSound.PlayOneShot(flatE);
+                    combatSound.PlayOneShot(kick);
                 }
                 if (Input.GetKeyDown("w"))
                 {
                     BlockLane(1);
-                    combatSound.PlayOneShot(G);
+                    combatSound.PlayOneShot(snare);
                 }
                 if (Input.GetKeyDown("e"))
                 {
                     BlockLane(2);
-                    combatSound.PlayOneShot(flatB);
+                    combatSound.PlayOneShot(clap);
                 }
                 if (Input.GetKeyDown("r"))
                 {
                     BlockLane(3);
-                    combatSound.PlayOneShot(hiFlatE);
+                    combatSound.PlayOneShot(cymbal);
                 }
                 #endregion
                 break;
             case 1:
-                #region D Flat Scale
+                #region Bass
                 if (Input.GetKeyDown("q"))
                 {
                     BlockLane(0);
-                    combatSound.PlayOneShot(flatD);
+                    combatSound.PlayOneShot(bassC);
                 }
                 if (Input.GetKeyDown("w"))
                 {
                     BlockLane(1);
-                    combatSound.PlayOneShot(F);
+                    combatSound.PlayOneShot(bassFlatE);
                 }
                 if (Input.GetKeyDown("e"))
                 {
                     BlockLane(2);
-                    combatSound.PlayOneShot(sharpG);
+                    combatSound.PlayOneShot(bassG);
                 }
                 if (Input.GetKeyDown("r"))
                 {
                     BlockLane(3);
-                    combatSound.PlayOneShot(hiFlatD);
+                    combatSound.PlayOneShot(bassHiC);
                 }
                 #endregion
                 break;
             default:
-                #region C Scale
+                #region Lead
                 if (Input.GetKeyDown("q"))
                 {
                     BlockLane(0);
