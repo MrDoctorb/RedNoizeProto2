@@ -24,19 +24,19 @@ public class LaneMarkerBehaviour : MonoBehaviour
         laneTwo.SetActive(false);
         laneOne.SetActive(false);
 
-        if (Input.GetKey("q"))
+        if (Input.GetKey("d"))
         {
             laneOne.SetActive(true);
         }
-        if (Input.GetKey("w"))
+        if (Input.GetKey("f"))
         {
             laneTwo.SetActive(true);
         }
-        if (Input.GetKey("e"))
+        if (Input.GetKey("j"))
         {
             laneThree.SetActive(true);
         }
-        if (Input.GetKey("r"))
+        if (Input.GetKey("k"))
         {
             laneFour.SetActive(true);
         }
