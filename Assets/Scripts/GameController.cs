@@ -4,17 +4,22 @@ using System.Collections;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI timer;
-  
-    private float timeDelay = 3;
-    
-   
+    NoteManager noteManager;
+    [SerializeField] GameObject playerSelector;
+    [SerializeField] GameObject enemySelector;
+
     void Start()
     {
-        StartCoroutine(CountDown());
+        noteManager = GetComponent<NoteManager>();
+       // StartCoroutine(CountDown());
     }
 
-     IEnumerator CountDown()
+    private void Update()
+    {
+       
+    }
+
+    /* IEnumerator CountDown()
      {
         Time.timeScale = 0f;
          while(timeDelay > 0)
@@ -29,7 +34,7 @@ public class GameController : MonoBehaviour
 
          yield return new WaitForSeconds(0.5f);
          timer.gameObject.SetActive(false);
-     }
+     }*/
 }
 
 
