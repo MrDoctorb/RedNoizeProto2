@@ -57,22 +57,22 @@ public class PlayerController : MonoBehaviour
         {
             case 2:
                 #region Rhythm
-                if (Input.GetKeyDown("q"))
+                if (Input.GetKeyDown("d"))
                 {
                     BlockLane(0);
                     combatSound.PlayOneShot(kick);
                 }
-                if (Input.GetKeyDown("w"))
+                if (Input.GetKeyDown("f"))
                 {
                     BlockLane(1);
                     combatSound.PlayOneShot(snare);
                 }
-                if (Input.GetKeyDown("e"))
+                if (Input.GetKeyDown("j"))
                 {
                     BlockLane(2);
                     combatSound.PlayOneShot(clap);
                 }
-                if (Input.GetKeyDown("r"))
+                if (Input.GetKeyDown("k"))
                 {
                     BlockLane(3);
                     combatSound.PlayOneShot(cymbal);
@@ -81,22 +81,22 @@ public class PlayerController : MonoBehaviour
                 break;
             case 1:
                 #region Bass
-                if (Input.GetKeyDown("q"))
+                if (Input.GetKeyDown("d"))
                 {
                     BlockLane(0);
                     combatSound.PlayOneShot(bassC);
                 }
-                if (Input.GetKeyDown("w"))
+                if (Input.GetKeyDown("f"))
                 {
                     BlockLane(1);
                     combatSound.PlayOneShot(bassFlatE);
                 }
-                if (Input.GetKeyDown("e"))
+                if (Input.GetKeyDown("j"))
                 {
                     BlockLane(2);
                     combatSound.PlayOneShot(bassG);
                 }
-                if (Input.GetKeyDown("r"))
+                if (Input.GetKeyDown("k"))
                 {
                     BlockLane(3);
                     combatSound.PlayOneShot(bassHiC);
@@ -105,22 +105,22 @@ public class PlayerController : MonoBehaviour
                 break;
             default:
                 #region Lead
-                if (Input.GetKeyDown("q"))
+                if (Input.GetKeyDown("d"))
                 {
                     BlockLane(0);
                     combatSound.PlayOneShot(lowC);
                 }
-                if (Input.GetKeyDown("w"))
+                if (Input.GetKeyDown("f"))
                 {
                     BlockLane(1);
                     combatSound.PlayOneShot(flatE);
                 }
-                if (Input.GetKeyDown("e"))
+                if (Input.GetKeyDown("j"))
                 {
                     BlockLane(2);
                     combatSound.PlayOneShot(G);
                 }
-                if (Input.GetKeyDown("r"))
+                if (Input.GetKeyDown("k"))
                 {
                     BlockLane(3);
                     combatSound.PlayOneShot(hiC);
