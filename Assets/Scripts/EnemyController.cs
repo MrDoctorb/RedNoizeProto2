@@ -5,7 +5,17 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public List<AttackPattern> attacks = new List<AttackPattern>();
-   // public AttackPattern attack;
+    // public AttackPattern attack;
+
+    public int health = 10;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player Note")
+        {
+            health--;
+        }
+    }
 }
 
 [System.Serializable]

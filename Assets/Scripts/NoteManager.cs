@@ -22,6 +22,7 @@ public class NoteManager : MonoBehaviour
     Queue<List<bool>> currentAttack;
 
     public GameObject noteRef;
+    public GameObject playerNoteRef;
     [SerializeField] MetronomeVisual metronome;
 
     public float timeAtLastMetronome;

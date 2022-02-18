@@ -1131,6 +1131,7 @@ MonoBehaviour:
   beatsToPlayer: 4
   enemy: {fileID: 1394690539}
   noteRef: {fileID: 5767885713068944918, guid: fcd6cacd3fb999740955a430ccf37b0b, type: 3}
+  playerNoteRef: {fileID: 5767885713068944918, guid: 0554c20f9ed33304fbd85c8031ba3d03, type: 3}
   metronome: {fileID: 1367973604}
   timeAtLastMetronome: 0
   debugMode: 0
@@ -1478,6 +1479,7 @@ MonoBehaviour:
   goodHitRange: 0.25
   perfectHitLine: -1.5
   scaleNum: 0
+  health: 5
   combatSound: {fileID: 1244040797}
   kick: {fileID: 8300000, guid: 0cb275bf1bfc4914aae24eab3b8b57f3, type: 3}
   snare: {fileID: 8300000, guid: 9cb2b7cd99ab13349b4f8fc9f2257c16, type: 3}
@@ -2177,6 +2179,7 @@ GameObject:
   - component: {fileID: 1394690538}
   - component: {fileID: 1394690537}
   - component: {fileID: 1394690539}
+  - component: {fileID: 1394690540}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -2320,6 +2323,33 @@ MonoBehaviour:
     - notes: 00010100
     - notes: 00000000
     - notes: 01000001
+  health: 10
+--- !u!61 &1394690540
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394690536}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1425627331
 GameObject:
   m_ObjectHideFlags: 0

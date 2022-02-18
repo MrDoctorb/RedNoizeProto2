@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float perfectHitLine;
 
     [SerializeField] int scaleNum = 0;
+    [SerializeField] int health = 5;
 
     #region Player Sounds
     [SerializeField] AudioSource combatSound;
@@ -211,8 +212,10 @@ public class PlayerController : MonoBehaviour
 
     void ThrowNote(int lane)
     {
-        NoteController note = Instantiate(nm.noteRef, new Vector2(nm.LaneNumToXPos(lane), -1.5f),
+        NoteController note = Instantiate(nm.playerNoteRef, new Vector2(nm.LaneNumToXPos(lane), -1.5f),
                                     Quaternion.identity).GetComponent<NoteController>();
+
+        note.tag.Replace("Untagged", "Player Note");
 
         note.lane = lane;
 
@@ -226,6 +229,7 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
+        health--;
         StartCoroutine(DamageAnimation());
     }
 
