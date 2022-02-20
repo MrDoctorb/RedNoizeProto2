@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static RedNoize.References;
 using TMPro;
+using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     //Bad hit range should be larger than good hit Range
@@ -12,7 +13,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float perfectHitLine;
 
     [SerializeField] int scaleNum = 0;
-    [SerializeField] int health = 5;
+
+    //Health vars
+    [SerializeField] int maxHealth = 20;
+    private int currentHealth;
+    [SerializeField] Slider healthBar;
 
     #region Player Sounds
     [SerializeField] AudioSource combatSound;
@@ -31,12 +36,15 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     [SerializeField] TextMeshProUGUI feedbackText;
-  
+   
+
 
 
     //Set the global Player Reference to this player
     private void Start()
     {
+        currentHealth = maxHealth;
+        healthBar.value = maxHealth; 
         player = this;
     }
 
@@ -229,7 +237,8 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
-        health--;
+        currentHealth --;
+        healthBar.value = currentHealth;
         StartCoroutine(DamageAnimation());
     }
 
