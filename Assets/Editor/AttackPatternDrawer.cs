@@ -39,6 +39,6 @@ public class AttackPatternDrawer : PropertyDrawer
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
-        return 18f * (property.FindPropertyRelative("length").intValue + 2);
+        return 18f * (property.FindPropertyRelative("length").intValue + 3);
     }
 }
