@@ -4,6 +4,7 @@ using UnityEditor;
 [CustomPropertyDrawer(typeof(AttackPattern))]
 public class AttackPatternDrawer : PropertyDrawer
 {
+
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
 
@@ -34,11 +35,10 @@ public class AttackPatternDrawer : PropertyDrawer
             newPos.y += 18f;
         }
         length.intValue = EditorGUI.IntField(newPos, length.intValue);
-
     }
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
-        return 18f * 10;
+        return 18f * (property.FindPropertyRelative("length").intValue + 2);
     }
 }

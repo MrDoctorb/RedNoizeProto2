@@ -2267,11 +2267,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacks:
-  - length: 4
+  - length: 5
     lanes:
     - notes: 01000000
     - notes: 00010000
     - notes: 00000100
+    - notes: 00000001
     - notes: 00000001
   - length: 8
     lanes:
