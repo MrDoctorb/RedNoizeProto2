@@ -2315,7 +2315,6 @@ MonoBehaviour:
     - notes: 00010100
   - length: 8
     lanes:
-    - notes: 00000000
     - notes: 01000001
     - notes: 00000000
     - notes: 00010100
@@ -2323,6 +2322,57 @@ MonoBehaviour:
     - notes: 00010100
     - notes: 00000000
     - notes: 01000001
+    - notes: 00000000
+  - length: 8
+    lanes:
+    - notes: 00000001
+    - notes: 00000000
+    - notes: 00000100
+    - notes: 00000000
+    - notes: 00010000
+    - notes: 00000000
+    - notes: 01000000
+    - notes: 00000000
+  - length: 8
+    lanes:
+    - notes: 00000000
+    - notes: 00010100
+    - notes: 01000001
+    - notes: 00000000
+    - notes: 01000001
+    - notes: 00010100
+    - notes: 00000000
+    - notes: 00010100
+  - length: 8
+    lanes:
+    - notes: 01000000
+    - notes: 01000000
+    - notes: 00000000
+    - notes: 01000000
+    - notes: 00000001
+    - notes: 00000000
+    - notes: 00000100
+    - notes: 00000000
+  - length: 8
+    lanes:
+    - notes: 01010100
+    - notes: 00000000
+    - notes: 01010001
+    - notes: 00000000
+    - notes: 01000101
+    - notes: 00000000
+    - notes: 00010101
+    - notes: 00000000
+  - length: 8
+    lanes:
+    - notes: 01000000
+    - notes: 00010000
+    - notes: 00000100
+    - notes: 00000001
+    - notes: 01000000
+    - notes: 00010000
+    - notes: 00000100
+    - notes: 00000001
   health: 10
 --- !u!61 &1394690540
 BoxCollider2D:
