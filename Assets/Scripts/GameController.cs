@@ -7,12 +7,8 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-       //debug code
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-        else if (Input.GetKey(KeyCode.R))
+        //debug code
+         if (Input.GetKey(KeyCode.R))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(1);
         }
