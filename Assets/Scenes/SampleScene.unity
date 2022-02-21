@@ -1207,6 +1207,12 @@ MonoBehaviour:
   enemy: {fileID: 1394690539}
   noteRef: {fileID: 5767885713068944918, guid: fcd6cacd3fb999740955a430ccf37b0b, type: 3}
   playerNoteRef: {fileID: 5767885713068944918, guid: 0554c20f9ed33304fbd85c8031ba3d03, type: 3}
+  enemyLead: {fileID: 7436589709123754855, guid: fab8941df1867fe41a0837bf135b829c, type: 3}
+  enemyBass: {fileID: 7695232558897993516, guid: df512ceee088104408a552d46a4c85a5, type: 3}
+  enemyDrum: {fileID: 8417793318260117223, guid: 00b68107d6c7dbf4cb120d0a4335b71e, type: 3}
+  playerLead: {fileID: 3672315977584485900, guid: 64cd771e585cff440a4473a4bd6d8663, type: 3}
+  playerBass: {fileID: 4901685241636163666, guid: d3ae13bf986d82d49a4dcda49468895a, type: 3}
+  playerDrum: {fileID: 980601167913733408, guid: 4933506e5ecb14c479f560cee65206fa, type: 3}
   metronome: {fileID: 1367973604}
   timeAtLastMetronome: 0
   debugMode: 0

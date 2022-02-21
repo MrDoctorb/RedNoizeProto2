@@ -23,6 +23,16 @@ public class NoteManager : MonoBehaviour
 
     public GameObject noteRef;
     public GameObject playerNoteRef;
+
+    #region Instrument Objects
+    public GameObject enemyLead;
+    public GameObject enemyBass;
+    public GameObject enemyDrum;
+    public GameObject playerLead;
+    public GameObject playerBass;
+    public GameObject playerDrum;
+    #endregion
+
     [SerializeField] MetronomeVisual metronome;
 
     public float timeAtLastMetronome;
