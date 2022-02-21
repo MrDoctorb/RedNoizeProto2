@@ -4,15 +4,6 @@ using System.Collections;
 
 public class GameController : MonoBehaviour
 {
-    NoteManager noteManager;
-    [SerializeField] GameObject playerSelector;
-    [SerializeField] GameObject enemySelector;
-
-    void Start()
-    {
-        noteManager = GetComponent<NoteManager>();
-       // StartCoroutine(CountDown());
-    }
 
     private void Update()
     {
