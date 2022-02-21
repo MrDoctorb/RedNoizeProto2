@@ -153,6 +153,8 @@ public class NoteManager : MonoBehaviour
             --segmentsTillOnBeat;
         }
 
+        player.IncrementAttack();
+
     }
 
     void LoadNewAttack()

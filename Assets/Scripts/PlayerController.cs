@@ -37,7 +37,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI feedbackText;
 
-
+    [SerializeField] AttackPattern newAttack;
+    int currentNote;
 
 
     //Set the global Player Reference to this player
@@ -157,7 +158,6 @@ public class PlayerController : MonoBehaviour
             note.transform.position.y > perfectHitLine - goodHitRange)
         {
             StartCoroutine(FeedBack("Nice Hit!"));
-            //print("Nice Hit!");
 
             BlockNote(note, lane);
         }
@@ -165,7 +165,6 @@ public class PlayerController : MonoBehaviour
             note.transform.position.y > perfectHitLine - badHitRange)
         {
             StartCoroutine(FeedBack("Eh, I guess"));
-            //print("Eh, I guess");
 
             BlockNote(note, lane);
 
@@ -227,6 +226,17 @@ public class PlayerController : MonoBehaviour
 
     void ThrowNote(int lane)
     {
+        print(currentNote);
+        if (currentNote > 4 * (int)nm.type)
+        {
+            print("A");
+            currentNote = 0;
+            newAttack.length = 4 * (int)nm.type;
+        }
+
+        print(currentNote);
+        print(lane + " ________" );
+        newAttack.lanes[lane].notes[currentNote] = true;
         NoteController note = Instantiate(nm.playerNoteRef, new Vector2(nm.LaneNumToXPos(lane), -1.5f),
                                     Quaternion.identity).GetComponent<NoteController>();
 
@@ -238,9 +248,14 @@ public class PlayerController : MonoBehaviour
         note.GetComponent<Rigidbody2D>().velocity = new Vector2(0, (7 * beatsPerSecond) / nm.beatsToPlayer);
         note.color = new Color(0, 1, 1, .5f);
         Destroy(note.gameObject, ((float)nm.bpm / 60) * nm.beatsToPlayer);
-
     }
 
+    public void IncrementAttack()
+    { 
+        ++currentNote;
+      //  ++newAttack.length;
+
+    }
 
     public void TakeDamage()
     {
