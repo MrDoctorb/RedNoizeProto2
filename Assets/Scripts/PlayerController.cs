@@ -225,6 +225,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private GameObject pNote;
+
     void ThrowNote(int lane)
     {
         /*if (currentNote > 4 * (int)nm.type)
@@ -239,7 +241,22 @@ public class PlayerController : MonoBehaviour
         newAttack.lanes[lane].notes[currentNote] = true;
 
 */
-        NoteController note = Instantiate(nm.playerNoteRef, new Vector2(nm.LaneNumToXPos(lane), -1.5f),
+        switch(scaleNum)
+        {
+            case 2:
+                pNote = nm.playerDrum;
+                break;
+
+            case 1:
+                pNote = nm.playerBass;
+                break;
+
+            default:
+                pNote = nm.playerLead;
+                break;
+        }
+
+        NoteController note = Instantiate(pNote, new Vector2(nm.LaneNumToXPos(lane), -1.5f),
                                     Quaternion.identity).GetComponent<NoteController>();
 
         note.tag.Replace("Untagged", "Player Note");
@@ -248,7 +265,6 @@ public class PlayerController : MonoBehaviour
 
         float beatsPerSecond = ((float)nm.bpm / 60);
         note.GetComponent<Rigidbody2D>().velocity = new Vector2(0, (7 * beatsPerSecond) / nm.beatsToPlayer);
-        note.color = new Color(0, 1, 1, .5f);
         Destroy(note.gameObject, ((float)nm.bpm / 60) * nm.beatsToPlayer);
     }
 

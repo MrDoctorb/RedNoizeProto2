@@ -87,6 +87,21 @@ public class NoteManager : MonoBehaviour
     {
         combatSound.PlayOneShot(sounds[lane]);
 
+        switch(inst)
+        {
+            case InstrumentType.Lead:
+                noteRef = enemyLead;
+                break;
+
+            case InstrumentType.Bass:
+                noteRef = enemyBass;
+                break;
+
+            case InstrumentType.Drum:
+                noteRef = enemyDrum;
+                break;
+        }
+
         NoteController note = Instantiate(noteRef, new Vector2(LaneNumToXPos(lane), 5.5f),
                                     Quaternion.identity).GetComponent<NoteController>();
 

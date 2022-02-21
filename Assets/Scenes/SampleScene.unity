@@ -2321,6 +2321,7 @@ MonoBehaviour:
   hiC: {fileID: 8300000, guid: 0b34eb186950ffa41920ea5308b1146e, type: 3}
   feedbackText: {fileID: 1425627333}
   newAttack:
+    instrument: 0
     length: 1
     lanes:
     - notes: 00000000
@@ -3414,14 +3415,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacks:
-  - length: 5
+  - instrument: 0
+    length: 5
     lanes:
     - notes: 01000000
     - notes: 00010000
     - notes: 00000100
     - notes: 00000001
     - notes: 00000001
-  - length: 8
+  - instrument: 0
+    length: 8
     lanes:
     - notes: 01000000
     - notes: 00000000
@@ -3431,7 +3434,8 @@ MonoBehaviour:
     - notes: 00000000
     - notes: 00000100
     - notes: 00000000
-  - length: 8
+  - instrument: 0
+    length: 8
     lanes:
     - notes: 01000000
     - notes: 00000000
@@ -3441,7 +3445,8 @@ MonoBehaviour:
     - notes: 00000000
     - notes: 00000100
     - notes: 00000000
-  - length: 8
+  - instrument: 0
+    length: 8
     lanes:
     - notes: 01000000
     - notes: 00000000
@@ -3451,7 +3456,8 @@ MonoBehaviour:
     - notes: 00000000
     - notes: 00010000
     - notes: 00000000
-  - length: 8
+  - instrument: 0
+    length: 8
     lanes:
     - notes: 00010100
     - notes: 01000001
@@ -3461,7 +3467,8 @@ MonoBehaviour:
     - notes: 01000001
     - notes: 01000001
     - notes: 00010100
-  - length: 8
+  - instrument: 0
+    length: 8
     lanes:
     - notes: 01000001
     - notes: 00000000
@@ -3471,7 +3478,8 @@ MonoBehaviour:
     - notes: 00000000
     - notes: 01000001
     - notes: 00000000
-  - length: 8
+  - instrument: 0
+    length: 8
     lanes:
     - notes: 00000001
     - notes: 00000000
@@ -3481,7 +3489,8 @@ MonoBehaviour:
     - notes: 00000000
     - notes: 01000000
     - notes: 00000000
-  - length: 8
+  - instrument: 0
+    length: 8
     lanes:
     - notes: 00000000
     - notes: 00010100
@@ -3491,7 +3500,8 @@ MonoBehaviour:
     - notes: 00010100
     - notes: 00000000
     - notes: 00010100
-  - length: 8
+  - instrument: 0
+    length: 8
     lanes:
     - notes: 01000000
     - notes: 01000000
@@ -3501,7 +3511,8 @@ MonoBehaviour:
     - notes: 00000000
     - notes: 00000100
     - notes: 00000000
-  - length: 8
+  - instrument: 0
+    length: 8
     lanes:
     - notes: 01010100
     - notes: 00000000
@@ -3511,7 +3522,8 @@ MonoBehaviour:
     - notes: 00000000
     - notes: 00010101
     - notes: 00000000
-  - length: 8
+  - instrument: 0
+    length: 8
     lanes:
     - notes: 01000000
     - notes: 00010000
