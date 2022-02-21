@@ -157,8 +157,13 @@ public class NoteManager : MonoBehaviour
 
     void LoadNewAttack()
     {
+        if(enemy.attacks.Count == 0)
+        {
+            print("NO MORE ATTACKS");
+        }
+
         currentAttack = new Queue<List<bool>>();
-        AttackPattern attack = enemy.attacks[Random.Range(0, enemy.attacks.Count)];
+        AttackPattern attack = enemy.attacks[0];
 
         foreach (AttackPattern.lane l in attack.lanes)
         {
@@ -172,6 +177,9 @@ public class NoteManager : MonoBehaviour
 
         waiting = currentAttack.Count * 2 + 2;
         beatsToPlayer = currentAttack.Count;
+
+        enemy.attacks.RemoveAt(0);
+
     }
 
     public bool IsPlayerTurn()

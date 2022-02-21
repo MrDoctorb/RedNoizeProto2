@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     [SerializeField] TextMeshProUGUI feedbackText;
-   
+
 
 
 
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
-        healthBar.value = maxHealth; 
+        healthBar.value = maxHealth;
         player = this;
     }
 
@@ -181,9 +181,10 @@ public class PlayerController : MonoBehaviour
 
     void TryThrow(int lane)
     {
-        if(nm.canThrow)
+        if (nm.canThrow)
         {
-            //nm.canThrow = false;
+            nm.canThrow = false;
+            StartCoroutine(RestoreNote());
             float nextAccurateBeat = nm.timeAtLastMetronome + (60 / nm.bpm);
             if (Time.time < nextAccurateBeat + .15f && Time.time > nextAccurateBeat - .15f)
             {
@@ -196,6 +197,12 @@ public class PlayerController : MonoBehaviour
                 //TO DO Penalty
             }
         }
+    }
+
+    IEnumerator RestoreNote()
+    {
+        yield return new WaitForSeconds((nm.bpm / (float)60) / (float)nm.type);
+        nm.canThrow = true;
     }
 
     void BlockNote(NoteController note, int lane)
@@ -237,7 +244,7 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
-        currentHealth --;
+        currentHealth--;
         healthBar.value = currentHealth;
         StartCoroutine(DamageAnimation());
     }
