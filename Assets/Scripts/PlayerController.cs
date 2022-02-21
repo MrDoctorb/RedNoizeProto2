@@ -200,7 +200,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator RestoreNote()
     {
-        yield return new WaitForSeconds((nm.bpm / (float)60) / (float)nm.type);
+        yield return new WaitForSeconds(((nm.bpm / (float)60) / (float)nm.type) - .25f);
         nm.canThrow = true;
     }
 

@@ -4,19 +4,14 @@ using System.Collections;
 
 public class GameController : MonoBehaviour
 {
-    NoteManager noteManager;
-    [SerializeField] GameObject playerSelector;
-    [SerializeField] GameObject enemySelector;
-
-    void Start()
-    {
-        noteManager = GetComponent<NoteManager>();
-       // StartCoroutine(CountDown());
-    }
 
     private void Update()
     {
-       
+        //debug code
+         if (Input.GetKey(KeyCode.R))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        }
     }
 
     /* IEnumerator CountDown()
