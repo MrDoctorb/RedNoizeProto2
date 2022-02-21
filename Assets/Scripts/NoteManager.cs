@@ -167,6 +167,8 @@ public class NoteManager : MonoBehaviour
 
     }
 
+    private InstrumentType inst;
+
     void LoadNewAttack()
     {
         if(enemy.attacks.Count == 0)
@@ -191,6 +193,7 @@ public class NoteManager : MonoBehaviour
 
         enemy.attacks.RemoveAt(0);
 
+        inst = attack.instrument;
     }
 
     public bool IsPlayerTurn()
