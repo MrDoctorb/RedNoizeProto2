@@ -1661,6 +1661,10 @@ MonoBehaviour:
   G: {fileID: 8300000, guid: a21a503964b3acd40b25fb4743edb2eb, type: 3}
   hiC: {fileID: 8300000, guid: 0b34eb186950ffa41920ea5308b1146e, type: 3}
   feedbackText: {fileID: 1425627333}
+  newAttack:
+    length: 1
+    lanes:
+    - notes: 00000000
 --- !u!1 &1082784649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2326,9 +2330,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.37701237, g: 0.45532054, b: 0.5754717, a: 1}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Color: {r: 0.37701237, g: 0.45532054, b: 0.5754717, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2346,8 +2350,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367973601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.02, y: 5.99, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0}
+  m_LocalScale: {x: 5.9, y: 1.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2365,7 +2369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a68618298cf74a4eb754476cd504dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scalingSpeed: 3
+  scalingSpeed: 5
 --- !u!1 &1394690536
 GameObject:
   m_ObjectHideFlags: 0

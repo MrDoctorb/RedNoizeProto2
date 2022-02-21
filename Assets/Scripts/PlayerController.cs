@@ -226,16 +226,12 @@ public class PlayerController : MonoBehaviour
 
     void ThrowNote(int lane)
     {
-        print(currentNote);
         if (currentNote > 4 * (int)nm.type)
         {
-            print("A");
             currentNote = 0;
             newAttack.length = 4 * (int)nm.type;
         }
 
-        print(currentNote);
-        print(lane + " ________" );
         newAttack.lanes[lane].notes[currentNote] = true;
         NoteController note = Instantiate(nm.playerNoteRef, new Vector2(nm.LaneNumToXPos(lane), -1.5f),
                                     Quaternion.identity).GetComponent<NoteController>();
