@@ -35,10 +35,14 @@ public class AttackPatternDrawer : PropertyDrawer
             newPos.y += 18f;
         }
         length.intValue = EditorGUI.IntField(newPos, length.intValue);
+
+        newPos.y += 18f;
+
+        EditorGUI.PropertyField(newPos, property.FindPropertyRelative("instrument"), GUIContent.none);
     }
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
-        return 18f * (property.FindPropertyRelative("length").intValue + 3);
+        return 18f * (property.FindPropertyRelative("length").intValue + 4);
     }
 }
