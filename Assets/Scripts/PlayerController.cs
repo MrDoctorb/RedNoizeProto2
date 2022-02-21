@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.value = maxHealth;
         player = this;
+        newAttack = new AttackPattern();
     }
 
     /// <summary>
@@ -226,13 +227,18 @@ public class PlayerController : MonoBehaviour
 
     void ThrowNote(int lane)
     {
-        if (currentNote > 4 * (int)nm.type)
+        /*if (currentNote > 4 * (int)nm.type)
         {
             currentNote = 0;
+            newAttack.lanes = new AttackPattern.lane[4];
             newAttack.length = 4 * (int)nm.type;
         }
 
+        print(lane + "<- Lane Index | Lanes Length ->" + newAttack.lanes.Length);
+        print(currentNote + " <- Current Note | Notes Length ->" + newAttack.length);
         newAttack.lanes[lane].notes[currentNote] = true;
+
+*/
         NoteController note = Instantiate(nm.playerNoteRef, new Vector2(nm.LaneNumToXPos(lane), -1.5f),
                                     Quaternion.identity).GetComponent<NoteController>();
 
@@ -247,9 +253,9 @@ public class PlayerController : MonoBehaviour
     }
 
     public void IncrementAttack()
-    { 
+    {
         ++currentNote;
-      //  ++newAttack.length;
+        //  ++newAttack.length;
 
     }
 

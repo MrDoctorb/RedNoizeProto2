@@ -176,7 +176,6 @@ public class NoteManager : MonoBehaviour
 
         currentAttack = new Queue<List<bool>>();
         AttackPattern attack = enemy.attacks[0];
-
         foreach (AttackPattern.lane l in attack.lanes)
         {
             List<bool> row = new List<bool>();
