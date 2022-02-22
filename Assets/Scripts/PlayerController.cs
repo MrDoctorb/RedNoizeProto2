@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int maxHealth = 20;
     private int currentHealth;
     [SerializeField] Slider healthBar;
+    [SerializeField] TextMeshProUGUI instType;
 
     #region Player Sounds
     [SerializeField] AudioSource combatSound;
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour
     int currentNote;
 
     int antiSpam;
-
+    int instText; // 
 
     //Set the global Player Reference to this player
     private void Start()
@@ -63,6 +64,22 @@ public class PlayerController : MonoBehaviour
             scaleNum += 1;
             scaleNum %= 3;
             noteTypeVisual.sprite = noteType[scaleNum];
+
+
+            switch (scaleNum)
+            {
+                case 0:
+               instType.text = "Lead";
+                    break;
+                case 1:
+                    instType.text = "Drum";
+                    break;
+                 default:
+                    instType.text = "Bass";
+                    break;
+
+            }
+        
         }
 
         switch (scaleNum)
