@@ -72,10 +72,10 @@ public class PlayerController : MonoBehaviour
                instType.text = "Lead";
                     break;
                 case 1:
-                    instType.text = "Drum";
+                    instType.text = "Bass";
                     break;
                  default:
-                    instType.text = "Bass";
+                    instType.text = "Drum";
                     break;
 
             }
