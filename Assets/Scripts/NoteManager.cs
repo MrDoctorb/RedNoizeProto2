@@ -6,6 +6,7 @@ using static RedNoize.References;
 
 public class NoteManager : MonoBehaviour
 {
+
     //By default 4 lanes. Each lane corresponds to a button
     public List<Queue<NoteController>> lanes = new List<Queue<NoteController>>();
     public int bpm;
@@ -45,6 +46,10 @@ public class NoteManager : MonoBehaviour
     [SerializeField] AudioSource combatSound;
     [SerializeField] List<AudioClip> sounds;
 
+    [SerializeField] GameObject turnIndicator;
+    [SerializeField] SpriteRenderer upcomingNote;
+   
+
     /// <summary>
     /// Initializes our 4 lanes and starts the metronome
     /// </summary>
@@ -62,6 +67,18 @@ public class NoteManager : MonoBehaviour
 
     private void Update()
     {
+        if(currentAttack != null)
+        {
+            if (IsPlayerTurn())
+            {
+                turnIndicator.transform.position = player.transform.position;
+            }
+            else
+            {
+                turnIndicator.transform.position = enemy.transform.position;
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && currentAttack == null)
         {
             currentAttack = new Queue<List<bool>>();
@@ -136,7 +153,12 @@ public class NoteManager : MonoBehaviour
     {
         timeAtLastMetronome = Time.time;
 
-        if (currentAttack.Count > 0)
+
+        if (waiting > 1)
+        {
+            --waiting;
+        }
+        else if (currentAttack.Count > 0)
         {
             List<bool> currentNotes = currentAttack.Dequeue();
             for (int i = 0; i < 4; ++i)
@@ -146,10 +168,6 @@ public class NoteManager : MonoBehaviour
                     SpawnNote(i);
                 }
             }
-        }
-        else if (waiting > 1)
-        {
-            --waiting;
         }
         else
         {
@@ -209,6 +227,20 @@ public class NoteManager : MonoBehaviour
         enemy.attacks.RemoveAt(0);
 
         inst = attack.instrument;
+        switch (inst)
+        {
+            case InstrumentType.Lead:
+                upcomingNote.color = Color.red;
+                break;
+
+            case InstrumentType.Bass:
+                upcomingNote.color = Color.blue;
+                break;
+
+            case InstrumentType.Drum:
+                upcomingNote.color = Color.green;
+                break;
+        }
     }
 
     public bool IsPlayerTurn()

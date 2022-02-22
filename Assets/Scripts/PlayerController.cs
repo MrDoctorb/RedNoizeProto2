@@ -11,8 +11,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float badHitRange;
     [SerializeField] float goodHitRange;
     [SerializeField] float perfectHitLine;
-
-    [SerializeField] int scaleNum = 0;
+    [SerializeField] SpriteRenderer noteTypeVisual;
+    [SerializeField] Sprite[] noteType;
+    int scaleNum = 0;
 
     //Health vars
     [SerializeField] int maxHealth = 20;
@@ -40,6 +41,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AttackPattern newAttack;
     int currentNote;
 
+    int antiSpam;
+
 
     //Set the global Player Reference to this player
     private void Start()
@@ -55,13 +58,11 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && scaleNum != 2)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             scaleNum += 1;
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow) && scaleNum != 0)
-        {
-            scaleNum -= 1;
+            scaleNum %= 3;
+            noteTypeVisual.sprite = noteType[scaleNum];
         }
 
         switch (scaleNum)
@@ -192,10 +193,19 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                ++antiSpam;
+                if (antiSpam >= 2)
+                {
+                    TakeDamage();
+                }
                 StartCoroutine(FeedBack("Swing and a miss"));
                 // print("Swing and a miss");
                 //TO DO Penalty
             }
+        }
+        else
+        {
+            ++antiSpam;
         }
     }
 
@@ -207,8 +217,10 @@ public class PlayerController : MonoBehaviour
 
     void BlockNote(NoteController note, int lane)
     {
+        antiSpam = 0;
         //Remove note from the queue
         nm.lanes[lane].Dequeue();
+
 
         if (note.catchable)
         {
@@ -219,9 +231,11 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            Destroy(note.gameObject);
+            /*
             note.GetComponent<Rigidbody2D>().velocity *= -1;
             note.color = new Color(0, .5f, 1, .5f);
-            Destroy(note.gameObject, ((float)nm.bpm / 60) * nm.beatsToPlayer);
+            Destroy(note.gameObject, ((float)nm.bpm / 60) * nm.beatsToPlayer);*/
         }
     }
 
@@ -241,6 +255,7 @@ public class PlayerController : MonoBehaviour
         newAttack.lanes[lane].notes[currentNote] = true;
 
 */
+     
         switch(scaleNum)
         {
             case 2:

@@ -20,11 +20,11 @@ public class NoteController : MonoBehaviour
         {
             if (value)
             {
-                color = Color.white;
+               // color = Color.white;
             }
             else
             {
-                color = Color.yellow;
+                //color = Color.yellow;
             }
             _catchable = value;
         }
@@ -36,6 +36,7 @@ public class NoteController : MonoBehaviour
     {
         rend = GetComponent<SpriteRenderer>();
         catchable = false;
+        color = Color.white;
     }
 
 
