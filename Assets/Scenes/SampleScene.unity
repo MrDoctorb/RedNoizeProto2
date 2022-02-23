@@ -780,9 +780,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 20
+  m_MaxValue: 146
   m_WholeNumbers: 0
-  m_Value: 20
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3726,7 +3726,7 @@ MonoBehaviour:
     - notes: 00000000
     - notes: 00000000
     - notes: 00000000
-  maxHealth: 20
+  maxHealth: 146
   enemyAlive: 1
   healthBar: {fileID: 355868383}
   enemyHurt: {fileID: 8300000, guid: 96332f12e8ef437428fe074bd55fbdb6, type: 3}
