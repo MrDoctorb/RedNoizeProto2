@@ -3674,14 +3674,14 @@ MonoBehaviour:
   - instrument: 2
     length: 8
     lanes:
-    - notes: 01000000
+    - notes: 00000001
+    - notes: 00000100
+    - notes: 00000000
+    - notes: 00000100
     - notes: 00000000
     - notes: 01000000
-    - notes: 00000000
     - notes: 00010000
     - notes: 00000001
-    - notes: 00000000
-    - notes: 01000000
   - instrument: 1
     length: 8
     lanes:
