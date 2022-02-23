@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     //Health vars
     [SerializeField] int maxHealth = 20;
     private int currentHealth;
+    public GameObject loseScreen;
     [SerializeField] Slider healthBar;
     [SerializeField] TextMeshProUGUI instType;
 
@@ -161,6 +162,11 @@ public class PlayerController : MonoBehaviour
                 #endregion
                 break;
         }
+
+        if(currentHealth <= 0)
+        {
+            //loseScreen.SetActive(true);
+        }
     }
 
     /// <summary>
@@ -239,8 +245,6 @@ public class PlayerController : MonoBehaviour
     void BlockNote(NoteController note, int lane)
     {
         antiSpam = 0;
-        //Remove note from the queue
-        nm.lanes[lane].Dequeue();
 
         //If note type is successfully countered
         if ((note.gameObject.tag == "Lead" && scaleNum == 2) ||
@@ -277,6 +281,8 @@ public class PlayerController : MonoBehaviour
             note.GetComponent<Rigidbody2D>().velocity = new Vector2(0, (16 * beatsPerSecond) / nm.beatsToPlayer);
             Destroy(note.gameObject, ((float)nm.bpm / 60) * nm.beatsToPlayer);
 
+            //Remove note from the queue
+            nm.lanes[lane].Dequeue();
         }
         //If note type is the same
         else if ((note.gameObject.tag == "Lead" && scaleNum == 0) ||
@@ -284,6 +290,9 @@ public class PlayerController : MonoBehaviour
             (note.gameObject.tag == "Drum" && scaleNum == 2))
         {
             Destroy(note.gameObject);
+
+            //Remove note from the queue
+            nm.lanes[lane].Dequeue();
 
 /*            note.GetComponent<Rigidbody2D>().velocity *= -1;
             note.color = new Color(0, .5f, 1, .5f);
