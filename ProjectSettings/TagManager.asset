@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Player Note
+  - Lead
+  - Bass
+  - Drum
   layers:
   - Default
   - TransparentFX

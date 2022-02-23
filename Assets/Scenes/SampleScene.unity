@@ -1588,7 +1588,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623434787}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.04, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3727,6 +3727,7 @@ MonoBehaviour:
     - notes: 00000000
     - notes: 00000000
   maxHealth: 20
+  enemyAlive: 1
   healthBar: {fileID: 355868383}
   enemyHurt: {fileID: 8300000, guid: 96332f12e8ef437428fe074bd55fbdb6, type: 3}
 --- !u!61 &1394690540

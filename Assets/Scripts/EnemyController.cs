@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] int maxHealth = 20;
     private int currentHealth;
+    public bool enemyAlive = true;
     [SerializeField] Slider healthBar;
     [SerializeField] AudioClip enemyHurt;
 
@@ -31,6 +32,14 @@ public class EnemyController : MonoBehaviour
             healthBar.value = currentHealth;
 
             Object.Destroy(collision.gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        if(currentHealth <= 0)
+        {
+            enemyAlive = false;
         }
     }
 }

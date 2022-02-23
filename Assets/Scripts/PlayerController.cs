@@ -242,21 +242,57 @@ public class PlayerController : MonoBehaviour
         //Remove note from the queue
         nm.lanes[lane].Dequeue();
 
-
-        if (note.catchable)
+        //If note type is successfully countered
+        if ((note.gameObject.tag == "Lead" && scaleNum == 2) ||
+            (note.gameObject.tag == "Bass" && scaleNum == 0) ||
+            (note.gameObject.tag == "Drum" && scaleNum == 1))
         {
             Destroy(note.gameObject);
             //Increase catch values
             //TODO
 
+            switch (scaleNum)
+            {
+                case 2:
+                    pNote = nm.playerDrum;
+                    break;
+
+                case 1:
+                    pNote = nm.playerBass;
+                    break;
+
+                default:
+                    pNote = nm.playerLead;
+                    break;
+            }
+
+            note = Instantiate(pNote, new Vector2(nm.LaneNumToXPos(lane), -1.5f),
+                                        Quaternion.identity).GetComponent<NoteController>();
+
+            //note.tag.Replace("Untagged", "Player Note");
+
+            note.lane = lane;
+
+            float beatsPerSecond = ((float)nm.bpm / 60);
+            note.GetComponent<Rigidbody2D>().velocity = new Vector2(0, (16 * beatsPerSecond) / nm.beatsToPlayer);
+            Destroy(note.gameObject, ((float)nm.bpm / 60) * nm.beatsToPlayer);
+
         }
-        else
+        //If note type is the same
+        else if ((note.gameObject.tag == "Lead" && scaleNum == 0) ||
+            (note.gameObject.tag == "Bass" && scaleNum == 1) ||
+            (note.gameObject.tag == "Drum" && scaleNum == 2))
         {
             Destroy(note.gameObject);
-            /*
-            note.GetComponent<Rigidbody2D>().velocity *= -1;
+
+/*            note.GetComponent<Rigidbody2D>().velocity *= -1;
             note.color = new Color(0, .5f, 1, .5f);
             Destroy(note.gameObject, ((float)nm.bpm / 60) * nm.beatsToPlayer);*/
+        }
+        //If player counters with weak note type
+        else
+        {
+            TakeDamage();
         }
     }
 
@@ -277,7 +313,7 @@ public class PlayerController : MonoBehaviour
 
 */
      
-        switch(scaleNum)
+/*        switch(scaleNum)
         {
             case 2:
                 pNote = nm.playerDrum;
@@ -301,7 +337,7 @@ public class PlayerController : MonoBehaviour
 
         float beatsPerSecond = ((float)nm.bpm / 60);
         note.GetComponent<Rigidbody2D>().velocity = new Vector2(0, (7 * beatsPerSecond) / nm.beatsToPlayer);
-        Destroy(note.gameObject, ((float)nm.bpm / 60) * nm.beatsToPlayer);
+        Destroy(note.gameObject, ((float)nm.bpm / 60) * nm.beatsToPlayer);*/
     }
 
     public void IncrementAttack()

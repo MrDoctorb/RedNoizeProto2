@@ -100,40 +100,45 @@ public class NoteManager : MonoBehaviour
     /// That note moves downwards and is added to the queue
     /// </summary>
     /// <param name="lane">The given lane</param>
+    /// 
+
     void SpawnNote(int lane)
     {
-        combatSound.PlayOneShot(sounds[lane]);
-
-        switch(inst)
+        if(enemy.enemyAlive)
         {
-            case InstrumentType.Lead:
-                noteRef = enemyLead;
-                break;
+            combatSound.PlayOneShot(sounds[lane]);
 
-            case InstrumentType.Bass:
-                noteRef = enemyBass;
-                break;
+            switch (inst)
+            {
+                case InstrumentType.Lead:
+                    noteRef = enemyLead;
+                    break;
 
-            case InstrumentType.Drum:
-                noteRef = enemyDrum;
-                break;
+                case InstrumentType.Bass:
+                    noteRef = enemyBass;
+                    break;
+
+                case InstrumentType.Drum:
+                    noteRef = enemyDrum;
+                    break;
+            }
+
+            NoteController note = Instantiate(noteRef, new Vector2(LaneNumToXPos(lane), 5.5f),
+                                        Quaternion.identity).GetComponent<NoteController>();
+
+            note.lane = lane;
+
+            float beatsPerSecond = ((float)bpm / 60);
+            note.GetComponent<Rigidbody2D>().velocity = new Vector2(0, (-7 * beatsPerSecond) / (beatsToPlayer / (float)type));
+
+            if (Random.Range(0, 4) == 0)
+            {
+                note.catchable = true;
+            }
+
+
+            lanes[lane].Enqueue(note);
         }
-
-        NoteController note = Instantiate(noteRef, new Vector2(LaneNumToXPos(lane), 5.5f),
-                                    Quaternion.identity).GetComponent<NoteController>();
-
-        note.lane = lane;
-
-        float beatsPerSecond = ((float)bpm / 60);
-        note.GetComponent<Rigidbody2D>().velocity = new Vector2(0, (-7 * beatsPerSecond) / (beatsToPlayer / (float)type));
-
-        if (Random.Range(0, 4) == 0)
-        {
-            note.catchable = true;
-        }
-
-
-        lanes[lane].Enqueue(note);
     }
 
     /// <summary>
