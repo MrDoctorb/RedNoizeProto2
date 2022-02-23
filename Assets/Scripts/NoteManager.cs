@@ -221,7 +221,7 @@ public class NoteManager : MonoBehaviour
             currentAttack.Enqueue(row);
         }
 
-        waiting = currentAttack.Count * 2 + 2;
+        waiting = currentAttack.Count * 2 + 0;
         beatsToPlayer = currentAttack.Count;
 
         enemy.attacks.RemoveAt(0);
