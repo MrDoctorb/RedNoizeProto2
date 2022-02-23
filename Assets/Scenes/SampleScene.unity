@@ -3509,14 +3509,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacks:
-  - instrument: 1
-    length: 5
+  - instrument: 0
+    length: 8
+    lanes:
+    - notes: 00000001
+    - notes: 00000000
+    - notes: 00000100
+    - notes: 00000000
+    - notes: 00010000
+    - notes: 00000000
+    - notes: 01000000
+    - notes: 00000000
+  - instrument: 0
+    length: 8
     lanes:
     - notes: 01000000
+    - notes: 00000000
+    - notes: 00000001
+    - notes: 00000000
     - notes: 00010000
+    - notes: 00000000
     - notes: 00000100
-    - notes: 00000001
-    - notes: 00000001
+    - notes: 00000000
   - instrument: 0
     length: 8
     lanes:
@@ -3528,17 +3542,14 @@ MonoBehaviour:
     - notes: 00000000
     - notes: 00000100
     - notes: 00000000
-  - instrument: 0
-    length: 8
+  - instrument: 1
+    length: 5
     lanes:
     - notes: 01000000
-    - notes: 00000000
-    - notes: 00000001
-    - notes: 00000000
     - notes: 00010000
-    - notes: 00000000
     - notes: 00000100
-    - notes: 00000000
+    - notes: 00000001
+    - notes: 00000001
   - instrument: 0
     length: 8
     lanes:
@@ -3572,21 +3583,10 @@ MonoBehaviour:
     - notes: 00000000
     - notes: 01000001
     - notes: 00000000
-  - instrument: 0
+  - instrument: 2
     length: 8
     lanes:
-    - notes: 00000001
-    - notes: 00000000
-    - notes: 00000100
-    - notes: 00000000
-    - notes: 00010000
-    - notes: 00000000
-    - notes: 01000000
-    - notes: 00000000
-  - instrument: 0
-    length: 8
-    lanes:
-    - notes: 00000000
+    - notes: 00010100
     - notes: 00010100
     - notes: 01000001
     - notes: 00000000
@@ -3627,6 +3627,28 @@ MonoBehaviour:
     - notes: 00010000
     - notes: 00000100
     - notes: 00000001
+  - instrument: 0
+    length: 8
+    lanes:
+    - notes: 01000000
+    - notes: 00010000
+    - notes: 00000100
+    - notes: 00000001
+    - notes: 00000001
+    - notes: 00000100
+    - notes: 00010000
+    - notes: 01000000
+  - instrument: 0
+    length: 8
+    lanes:
+    - notes: 00000000
+    - notes: 00000000
+    - notes: 00000000
+    - notes: 00000000
+    - notes: 00000000
+    - notes: 00000000
+    - notes: 00000000
+    - notes: 00000000
   maxHealth: 20
   healthBar: {fileID: 355868383}
   enemyHurt: {fileID: 8300000, guid: 96332f12e8ef437428fe074bd55fbdb6, type: 3}

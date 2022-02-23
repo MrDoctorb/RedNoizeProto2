@@ -85,7 +85,7 @@ public class NoteManager : MonoBehaviour
             InvokeRepeating("Metronome", 0, (60 / (float)bpm) / (int)type);
             Invoke("StartSong", 0);
 
-            waiting = 8;
+            waiting = 0;
         }
     }
 
