@@ -29,6 +29,8 @@ public class EnemyController : MonoBehaviour
 
             currentHealth--;
             healthBar.value = currentHealth;
+
+            Object.Destroy(collision.gameObject);
         }
     }
 }
