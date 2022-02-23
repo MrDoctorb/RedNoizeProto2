@@ -3509,7 +3509,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacks:
-  - instrument: 0
+  - instrument: 1
+    length: 8
+    lanes:
+    - notes: 01000000
+    - notes: 00000000
+    - notes: 00010000
+    - notes: 00000000
+    - notes: 00000100
+    - notes: 00000000
+    - notes: 00000001
+    - notes: 00000000
+  - instrument: 1
     length: 8
     lanes:
     - notes: 00000001
@@ -3520,18 +3531,7 @@ MonoBehaviour:
     - notes: 00000000
     - notes: 01000000
     - notes: 00000000
-  - instrument: 0
-    length: 8
-    lanes:
-    - notes: 01000000
-    - notes: 00000000
-    - notes: 00000001
-    - notes: 00000000
-    - notes: 00010000
-    - notes: 00000000
-    - notes: 00000100
-    - notes: 00000000
-  - instrument: 0
+  - instrument: 1
     length: 8
     lanes:
     - notes: 01000000
@@ -3542,17 +3542,18 @@ MonoBehaviour:
     - notes: 00000000
     - notes: 00000100
     - notes: 00000000
-  - instrument: 1
+  - instrument: 2
     length: 5
     lanes:
     - notes: 01000000
     - notes: 00010000
     - notes: 00000100
     - notes: 00000001
-    - notes: 00000001
-  - instrument: 0
+    - notes: 00000000
+  - instrument: 1
     length: 8
     lanes:
+    - notes: 00000000
     - notes: 01000000
     - notes: 00000000
     - notes: 00010000
@@ -3560,19 +3561,18 @@ MonoBehaviour:
     - notes: 00000101
     - notes: 00000000
     - notes: 00010000
-    - notes: 00000000
-  - instrument: 0
+  - instrument: 1
     length: 8
     lanes:
+    - notes: 00000000
     - notes: 00010100
     - notes: 01000001
     - notes: 01000001
     - notes: 00010100
-    - notes: 00010100
     - notes: 01000001
     - notes: 01000001
     - notes: 00010100
-  - instrument: 0
+  - instrument: 1
     length: 8
     lanes:
     - notes: 01000001
@@ -3583,7 +3583,7 @@ MonoBehaviour:
     - notes: 00000000
     - notes: 01000001
     - notes: 00000000
-  - instrument: 2
+  - instrument: 1
     length: 8
     lanes:
     - notes: 00010100
@@ -3605,7 +3605,7 @@ MonoBehaviour:
     - notes: 00000000
     - notes: 00000100
     - notes: 00000000
-  - instrument: 0
+  - instrument: 1
     length: 8
     lanes:
     - notes: 01010100
@@ -3616,7 +3616,7 @@ MonoBehaviour:
     - notes: 00000000
     - notes: 00010101
     - notes: 00000000
-  - instrument: 0
+  - instrument: 1
     length: 8
     lanes:
     - notes: 01000000
@@ -3627,7 +3627,7 @@ MonoBehaviour:
     - notes: 00010000
     - notes: 00000100
     - notes: 00000001
-  - instrument: 0
+  - instrument: 2
     length: 8
     lanes:
     - notes: 01000000
@@ -3638,7 +3638,84 @@ MonoBehaviour:
     - notes: 00000100
     - notes: 00010000
     - notes: 01000000
+  - instrument: 2
+    length: 8
+    lanes:
+    - notes: 00000001
+    - notes: 01000000
+    - notes: 01000000
+    - notes: 00000000
+    - notes: 00000000
+    - notes: 00010000
+    - notes: 00000000
+    - notes: 01000001
   - instrument: 0
+    length: 8
+    lanes:
+    - notes: 01000100
+    - notes: 00000001
+    - notes: 00000100
+    - notes: 00000001
+    - notes: 01000100
+    - notes: 00000001
+    - notes: 00000100
+    - notes: 00000001
+  - instrument: 2
+    length: 8
+    lanes:
+    - notes: 01000000
+    - notes: 00000000
+    - notes: 01000000
+    - notes: 00000000
+    - notes: 00010000
+    - notes: 00000001
+    - notes: 00000000
+    - notes: 01000000
+  - instrument: 2
+    length: 8
+    lanes:
+    - notes: 01000000
+    - notes: 00000000
+    - notes: 01000000
+    - notes: 00000000
+    - notes: 00010000
+    - notes: 00000001
+    - notes: 00000000
+    - notes: 01000000
+  - instrument: 1
+    length: 8
+    lanes:
+    - notes: 00000001
+    - notes: 00000100
+    - notes: 00000000
+    - notes: 00000100
+    - notes: 00000001
+    - notes: 00000000
+    - notes: 00000001
+    - notes: 00000100
+  - instrument: 0
+    length: 8
+    lanes:
+    - notes: 01000001
+    - notes: 00000001
+    - notes: 00000000
+    - notes: 00000100
+    - notes: 01000001
+    - notes: 01000001
+    - notes: 00000000
+    - notes: 00000100
+  - instrument: 1
+    length: 8
+    lanes:
+    - notes: 01000001
+    - notes: 00000001
+    - notes: 00000000
+    - notes: 00000100
+    - notes: 01000001
+    - notes: 01000001
+    - notes: 00000000
+    - notes: 01010101
+  - instrument: 1
     length: 8
     lanes:
     - notes: 00000000
