@@ -2398,6 +2398,8 @@ MonoBehaviour:
   healthBar: {fileID: 859589596}
   instType: {fileID: 1893561106}
   combatSound: {fileID: 1244040797}
+  playerHurt: {fileID: 8300000, guid: 9cef48150c633df4e9913ec53ed3fb87, type: 3}
+  switchInst: {fileID: 8300000, guid: 907ba63ca1b8df643ab44c8eb28d7f0c, type: 3}
   kick: {fileID: 8300000, guid: 0cb275bf1bfc4914aae24eab3b8b57f3, type: 3}
   snare: {fileID: 8300000, guid: 9cb2b7cd99ab13349b4f8fc9f2257c16, type: 3}
   clap: {fileID: 8300000, guid: ebe7ad3e2ac16db4db761e005aa2a1dd, type: 3}
@@ -3627,6 +3629,7 @@ MonoBehaviour:
     - notes: 00000001
   maxHealth: 20
   healthBar: {fileID: 355868383}
+  enemyHurt: {fileID: 8300000, guid: 96332f12e8ef437428fe074bd55fbdb6, type: 3}
 --- !u!61 &1394690540
 BoxCollider2D:
   m_ObjectHideFlags: 0

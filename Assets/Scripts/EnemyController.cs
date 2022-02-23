@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] int maxHealth = 20;
     private int currentHealth;
     [SerializeField] Slider healthBar;
+    [SerializeField] AudioClip enemyHurt;
 
     private void Start()
     {
@@ -23,6 +24,9 @@ public class EnemyController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player Note")
         {
+            PlayerController pc = FindObjectOfType<PlayerController>();
+            pc.combatSound.PlayOneShot(enemyHurt);
+
             currentHealth--;
             healthBar.value = currentHealth;
         }

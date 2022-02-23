@@ -22,7 +22,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] TextMeshProUGUI instType;
 
     #region Player Sounds
-    [SerializeField] AudioSource combatSound;
+    public AudioSource combatSound;
+    [SerializeField] AudioClip playerHurt;
+    [SerializeField] AudioClip switchInst;
     [SerializeField] AudioClip kick;
     [SerializeField] AudioClip snare;
     [SerializeField] AudioClip clap;
@@ -61,6 +63,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            combatSound.PlayOneShot(switchInst);
+
             scaleNum += 1;
             scaleNum %= 3;
             noteTypeVisual.sprite = noteType[scaleNum];
@@ -309,6 +313,8 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
+        combatSound.PlayOneShot(playerHurt);
+
         currentHealth--;
         healthBar.value = currentHealth;
         StartCoroutine(DamageAnimation());
